@@ -19,6 +19,11 @@
 *OSX, Version 3.7, Indigo*  
 * http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/indigo/SR2/eclipse-jee-indigo-SR2-macosx-cocoa-x86_64.tar.gz
 
+##### Install Eclipse
+* Unzip the package
+* Rename the eclipse folder to indigo
+* Move the indigo folder to $DEV/eclipse/indigo
+
 ##### Create an Apple Developer account
 * https://developer.apple.com
 
@@ -41,7 +46,10 @@ ls /Library/Java/JavaVirtualMachines/
 ```
 
 ##### Open Eclipse Indigo
+
 ##### Create a new workspace
+* $DEV/eclipse/workspace/java=performance-tuning
+
 ##### Create a new project
 ```
 File > New > Project > Java Project
