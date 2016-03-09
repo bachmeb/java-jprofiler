@@ -126,3 +126,10 @@ Run > Run
 * *Initial Profiling Settings*
 	* Instrumentation
 	* Click OK
+* *Local attach*
+	* Select Telemetries > Overview
+	* Select Telemetries > GC Activity
+	* Select Telemetries > Classes
+	* Select Telemetries > Threads
+	* Select Telemetries > CPU Load
+	* Select Live Memory > All Objects
