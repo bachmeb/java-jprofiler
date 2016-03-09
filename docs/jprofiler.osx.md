@@ -43,6 +43,30 @@ ls /Library/Java/JavaVirtualMachines/
 ##### Open Eclipse Indigo
 ##### Create a new workspace
 ##### Create a new project
-##### Configure JREs
-##### Add
-/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
+```
+File > New > Project > Java Project
+```
+* *Create a Java Project*
+  * Project name: testapp
+  * Use default location: uncheck
+  * Location: $DEV/git/java-performance-tuning/projects/testapp
+  * JRE: Use a project specific JRE 
+  * Click Configure JREs
+    * *Installed JREs*
+      * Click Add
+        * *JRE Type*
+          * Select MacOS X VM 
+          * Click Next
+          * JRE home: /Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
+          * JRE name: JDK1.6_65
+          * Click Finish
+    * *Installed JREs*
+      * Select JDK1.6_65
+      * Click OK
+  * Use a project specific JRE: Select JDK1.6_65
+  * Create separate folders for sources and class files: yes
+  * Add project to working sets: no
+  * Click Next
+* Java Settings
+  * Default output folder: testapp/bin
+  * Click Finish
