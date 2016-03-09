@@ -49,7 +49,7 @@ File > New > Project > Java Project
 * *Create a Java Project*
   * Project name: testapp
   * Use default location: uncheck
-  * Location: $DEV/git/java-performance-tuning/projects/testapp
+  * Location: $GIT/java-performance-tuning/projects/testapp
   * JRE: Use a project specific JRE 
   * Click Configure JREs
     * *Installed JREs*
