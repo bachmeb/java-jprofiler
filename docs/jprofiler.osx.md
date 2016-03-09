@@ -12,4 +12,8 @@
 * https://www.ej-technologies.com/products/jprofiler/overview.html
 
 ##### Download Eclipse IDE for Java EE Developers for OSX
+*Version 3.7, Indigo*
 * https://eclipse.org/downloads/
+* http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/indigo/SR2/eclipse-jee-indigo-SR2-macosx-cocoa-x86_64.tar.gz
+
+
