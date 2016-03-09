@@ -60,6 +60,7 @@ File > New > Project > Java Project
           * JRE home: /Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
           * JRE name: JDK1.6_65
           * Click Finish
+      * Click OK
     * *Installed JREs*
       * Select JDK1.6_65
       * Click OK
