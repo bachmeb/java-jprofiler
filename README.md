@@ -1,7 +1,7 @@
 # java-performance-tuning
 
 ### OSX
-[JProfiler](/docs/jprofiler.osx.md)
+* [JProfiler](/docs/jprofiler.osx.md)
 
 ### Linux
 
