@@ -10,3 +10,6 @@
 
 ##### Download JProfiler
 * https://www.ej-technologies.com/products/jprofiler/overview.html
+
+##### Download Eclipse IDE for Java EE Developers for OSX
+* https://eclipse.org/downloads/
