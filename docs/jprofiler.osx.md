@@ -72,7 +72,21 @@ File > New > Project > Java Project
   * Default output folder: testapp/bin
   * Click Finish
 
-
+##### Create a new class
+```
+File > New > Class
+```
+* *Java Class*
+	* Source folder: testapp/src
+	* Package: (default)
+	* Name: TestApp
+	* Modifiers: Public
+	* Superclass: java.lang.Object
+	* Interfaces: (none)
+	* Which methods and stubs would you like to create?
+		* public static void main(String args[])
+	* Click Finish
+##### Code the class
 ```java
 public class TestApp {
 
@@ -96,6 +110,12 @@ public class TestApp {
 
 }
 ```
+##### Run the app
+*Notice the console output*
+```
+Run > Run
+```
+
 ##### Open JProfiler
 * *Quick Start*
 	* Attach to a Locally Running VM 
