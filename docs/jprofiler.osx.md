@@ -96,3 +96,11 @@ public class TestApp {
 
 }
 ```
+##### Open JProfiler
+* *Quick Start*
+	* Attach to a Locally Running VM 
+	* Select Process Name: TestApp
+	* Click Start
+* *Initial Profiling Settings*
+	* Instrumentation
+	* Click OK
