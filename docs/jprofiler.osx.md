@@ -40,3 +40,9 @@
 ls /Library/Java/JavaVirtualMachines/
 ```
 
+##### Open Eclipse Indigo
+##### Create a new workspace
+##### Create a new project
+##### Configure JREs
+##### Add
+/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
