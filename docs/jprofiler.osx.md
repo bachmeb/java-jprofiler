@@ -111,10 +111,11 @@ public class TestApp {
 }
 ```
 ##### Run the app
-*Notice the console output*
 ```
 Run > Run
 ```
+
+*Notice the console output*
 
 ##### Open JProfiler
 * *Quick Start*
