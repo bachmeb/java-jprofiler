@@ -8,6 +8,7 @@
 * http://blog.ej-technologies.com/2013/07/java-profiling-across-jvm-boundaries.html
 * http://blog.ej-technologies.com/2011/09/inspections-in-heap-walker.html
 * https://support.apple.com/kb/dl1572?locale=en_US
+* https://dimitrisli.wordpress.com/2012/01/20/install-java-on-mac-os-x/
 
 ##### Download JProfiler
 * https://www.ej-technologies.com/products/jprofiler/overview.html
