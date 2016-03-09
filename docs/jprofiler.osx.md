@@ -48,7 +48,7 @@ ls /Library/Java/JavaVirtualMachines/
 ##### Open Eclipse Indigo
 
 ##### Create a new workspace
-* $DEV/eclipse/workspace/java=performance-tuning
+* $DEV/eclipse/workspace/java-performance-tuning
 
 ##### Create a new project
 ```
