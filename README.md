@@ -1,9 +1,9 @@
 # java-performance-tuning
 
-## References
-* http://www.infoq.com/articles/java-profiling-with-open-source
+### OSX
+[JProfiler](/docs/jprofiler.osx.md)
 
+### Linux
 
-##### Download JProfiler
-* https://www.ej-technologies.com/products/jprofiler/overview.html
+### Windows
 
