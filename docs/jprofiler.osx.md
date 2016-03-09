@@ -86,6 +86,7 @@ File > New > Class
 	* Which methods and stubs would you like to create?
 		* public static void main(String args[])
 	* Click Finish
+
 ##### Code the class
 ```java
 public class TestApp {
