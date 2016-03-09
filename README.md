@@ -1,4 +1,4 @@
-# java-jprofiler
+# java-performance-tuning
 
 ## References
 * http://www.infoq.com/articles/java-profiling-with-open-source
