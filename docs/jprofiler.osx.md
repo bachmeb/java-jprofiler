@@ -71,3 +71,28 @@ File > New > Project > Java Project
 * Java Settings
   * Default output folder: testapp/bin
   * Click Finish
+
+
+```java
+public class TestApp {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		TestApp me = new TestApp();
+		me.go();
+	}
+	
+	public void go(){
+		System.out.println("Hello");
+		
+		for(int i=0; i<987654321;i++){
+			System.out.println("Number: "+i);	
+		}
+	}
+
+}
+```
