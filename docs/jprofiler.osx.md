@@ -7,6 +7,7 @@
 * http://blog.ej-technologies.com/2012/01/profiling-jpahibernate.html
 * http://blog.ej-technologies.com/2013/07/java-profiling-across-jvm-boundaries.html
 * http://blog.ej-technologies.com/2011/09/inspections-in-heap-walker.html
+* https://support.apple.com/kb/dl1572?locale=en_US
 
 ##### Download JProfiler
 * https://www.ej-technologies.com/products/jprofiler/overview.html
@@ -17,4 +18,6 @@
 *OSX, Version 3.7, Indigo*  
 * http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/indigo/SR2/eclipse-jee-indigo-SR2-macosx-cocoa-x86_64.tar.gz
 
+##### List the contents of the JVM directory, to see if the 1.6 JVM is installed
+    ls /Library/Java/JavaVirtualMachines/
 
