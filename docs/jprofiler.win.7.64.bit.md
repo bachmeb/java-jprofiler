@@ -69,9 +69,9 @@ java -version
 ##### Create a new project
 * File > New > Project > Java Project
 	* *Create a Java Project*
-	  * Project name: testapp
+	  * Project name: numbers
 	  * Use default location: uncheck
-	  * Location: $DEV\git\java-performance-tuning\projects\testapp
+	  * Location: $DEV\git\java-performance-tuning\projects\numbers
 	  * JRE: Use a project specific JRE 
 	  * Click Configure JREs
 	    * *Installed JREs*
@@ -90,15 +90,15 @@ java -version
 	  * Add project to working sets: unchecked
 	  * Click Next
 	* Java Settings
-	  * Default output folder: testapp/bin
+	  * Default output folder: numbers/bin
 	  * Click Finish
 
 ##### Create a new class
 *File > New > Class
 	* *Java Class*
-		* Source folder: testapp/src
+		* Source folder: numbers/src
 		* Package: (default)
-		* Name: TestApp
+		* Name: NumbersApp
 		* Modifiers: Public
 		* Superclass: java.lang.Object
 		* Interfaces: (none)
@@ -108,7 +108,7 @@ java -version
 
 ##### Code the class
 ```java
-public class TestApp {
+public class NumbersApp {
 
 	/**
 	 * @param args
@@ -116,7 +116,7 @@ public class TestApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		TestApp me = new TestApp();
+		NumbersApp me = new NumbersApp();
 		me.go();
 	}
 	
@@ -155,14 +155,27 @@ public class TestApp {
 ##### Terminate TestApp in Eclipse
 * Console > Terminate
 
-##### Update the TestApp class
+##### Create a new class
+*File > New > Class
+	* *Java Class*
+		* Source folder: strings/src
+		* Package: (default)
+		* Name: StringsApp
+		* Modifiers: Public
+		* Superclass: java.lang.Object
+		* Interfaces: (none)
+		* Which methods and stubs would you like to create?
+			* public static void main(String args[])
+		* Click Finish
+
+##### Code the class
 ```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class TestApp {
+public class StringsApp {
 
     /**
      * @param args
@@ -170,7 +183,7 @@ public class TestApp {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
-        TestApp me = new TestApp();
+        StringsApp me = new StringsApp();
         me.go();
     }
 
@@ -210,4 +223,9 @@ public class TestApp {
     }
 }
 ```
-
+##### Run the app
+* Run > Run > Run As > Java Application
+```
+How many strings go into the box?
+```
+*Enter 7654321*
