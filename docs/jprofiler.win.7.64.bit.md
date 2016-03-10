@@ -43,9 +43,7 @@ java -version
 * Move the indigo folder to $DEV/eclipse/indigo/64
 
 ##### Open Eclipse Indigo
-```
-Start > Eclipse Indigo
-```
+* Start > Eclipse Indigo
 
 ##### Create a new workspace
 * $DEV/eclipse/workspace/java-performance-tuning
