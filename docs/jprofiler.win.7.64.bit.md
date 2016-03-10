@@ -14,7 +14,7 @@ Install and run JProfiler on a 64-bit Win 7 machine
 
 In this tutorial $DEV refers to C:\DEV\ on my system. For consistency, you can choose any folder you like to be your DEV folder. 
 
-##### Download JProfiler
+##### Download JProfiler for Windows 64-bit
 * https://www.ej-technologies.com/products/jprofiler/overview.html
 
 ##### Download JDK 1.6 update 45, 64-bit
@@ -61,18 +61,17 @@ java -version
 	    * *Installed JREs*
 	      * Click Add
 	        * *JRE Type*
-	          * Select MacOS X VM 
+	          * Select Standard VM 
 	          * Click Next
-	          * JRE home: /Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
-	          * JRE name: JDK1.6_65
+	          * JRE home: C:\DEV\java\6\64\jdk1.6.0_45
+	          * JRE name: JDK1.6_45-64
 	          * Click Finish
-	      * Click OK
 	    * *Installed JREs*
-	      * Select JDK1.6_65
+	      * Select JDK1.6_45-64
 	      * Click OK
-	  * Use a project specific JRE: Select JDK1.6_65
+	  * Use a project specific JRE: Select JDK1.6_45-64
 	  * Create separate folders for sources and class files: yes
-	  * Add project to working sets: no
+	  * Add project to working sets: unchecked
 	  * Click Next
 	* Java Settings
 	  * Default output folder: testapp/bin
@@ -116,7 +115,7 @@ public class TestApp {
 }
 ```
 ##### Run the app
-* Run > Run
+* Run > Run > Run As > Java Application
 
 *Notice the console output*
 
