@@ -18,6 +18,16 @@ Install and run JProfiler on a 64-bit Win 7 machine
 ##### Download JDK 1.6 update 45, 64-bit
 * http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR
 
+##### Install JDK 1.6 update 45
+* The filename is jdk-6u45-windows-x64.exe
+* *Custom Setup*
+	* Install to: $DEV\java\6\64\jdk1.6.0_45\
+
+##### Add bin folder to Windows PATH environment variable
+* Start > Control Panel > System > Advanced System Settings > Environment Variables > System Variables > Path > Edit
+* Append the following: C:\DEV\java\6\64\jdk1.6.0_45\bin;
+* Start > cmd > java -version
+
 ##### Download Eclipse Java EE IDE for Web Developers
 * https://eclipse.org/downloads/  
 
@@ -26,31 +36,13 @@ Install and run JProfiler on a 64-bit Win 7 machine
 
 ##### Install Eclipse
 * Unzip the package
-* Rename the eclipse folder to indigo
-* Move the indigo folder to $DEV/eclipse/indigo
-
-##### Create an Apple Developer account
-* https://developer.apple.com
-
-##### Login to the Apple Developer portal
-* https://developer.apple.com
-
-##### Go to the Apple Developer Downloads page and search for 'java'
-* https://developer.apple.com/downloads/
-
-##### Download Java for OS X 2013-005 Developer Package
-*This package contains JDK 1.6 update 65*
-
-##### Install Java for OS X 2013-005 Developer Package
-*The file name is java_for_os_x_2013005_dp__11m4609.dmg*
-
-##### Open the OSX Terminal application and list the contents of the JavaVirtualMachines directory
-*Look for 1.6.0_65-b14-462.jdk*
-```
-ls /Library/Java/JavaVirtualMachines/
-```
+* Rename the eclipse folder to 64
+* Move the indigo folder to $DEV/eclipse/indigo/64
 
 ##### Open Eclipse Indigo
+```
+Start > Eclipse Indigo
+```
 
 ##### Create a new workspace
 * $DEV/eclipse/workspace/java-performance-tuning
