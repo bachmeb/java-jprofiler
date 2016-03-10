@@ -94,7 +94,8 @@ java -version
 	  * Click Finish
 
 ##### Create a new class
-*File > New > Class
+
+* File > New > Class
 	* *Java Class*
 		* Source folder: numbers/src
 		* Package: (default)
@@ -156,7 +157,8 @@ public class NumbersApp {
 * Console > Terminate
 
 ##### Create a new class
-*File > New > Class
+
+* File > New > Class
 	* *Java Class*
 		* Source folder: strings/src
 		* Package: (default)
