@@ -26,7 +26,10 @@ Install and run JProfiler on a 64-bit Win 7 machine
 ##### Add bin folder to Windows PATH environment variable
 * Start > Control Panel > System > Advanced System Settings > Environment Variables > System Variables > Path > Edit
 * Append the following: C:\DEV\java\6\64\jdk1.6.0_45\bin;
-* Start > cmd > java -version
+* Start > cmd
+```
+java -version
+```
 
 ##### Download Eclipse Java EE IDE for Web Developers
 * https://eclipse.org/downloads/  
