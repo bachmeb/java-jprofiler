@@ -14,9 +14,6 @@ Install and run JProfiler on a 64-bit Win 7 machine
 
 In this tutorial $DEV refers to C:\DEV\ on my system. For consistency, you can choose any folder you like to be your DEV folder. 
 
-##### Download JProfiler for Windows 64-bit
-* https://www.ej-technologies.com/products/jprofiler/overview.html
-
 ##### Download JDK 1.6 update 45, 64-bit
 * http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR
 
@@ -43,6 +40,25 @@ java -version
 * Unzip the package
 * Rename the eclipse folder to 64
 * Move the indigo folder to $DEV/eclipse/indigo/64
+
+##### Download JProfiler for Windows 64-bit
+* https://www.ej-technologies.com/products/jprofiler/overview.html
+
+##### Install JProfiler 
+* Location: $DEV\jprofiler\9
+* *License Information*
+	* Yes, I would like to evaluate or enter my license information
+	* Next
+	* Evaluate for 10 days
+	* Next
+* *IDE Integration* 
+	* Eclipse 3.7 (Indigo)
+	* Click Integrate
+	* Choose Installation Folder
+		* $DEV\eclipse\indigo\64
+	* Click Next
+* *Completing Setup*
+	* Click Finish
 
 ##### Open Eclipse Indigo
 * Start > Eclipse Indigo
