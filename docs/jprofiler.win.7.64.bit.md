@@ -12,6 +12,8 @@ Install and run JProfiler on a 64-bit Win 7 machine
 * https://support.apple.com/kb/dl1572?locale=en_US
 * https://dimitrisli.wordpress.com/2012/01/20/install-java-on-mac-os-x/
 
+In this tutorial $DEV refers to C:\DEV\ on my system. For consistency, you can choose any folder you like for your DEV folder. 
+
 ##### Download JProfiler
 * https://www.ej-technologies.com/products/jprofiler/overview.html
 
@@ -25,7 +27,7 @@ Install and run JProfiler on a 64-bit Win 7 machine
 
 ##### Add bin folder to Windows PATH environment variable
 * Start > Control Panel > System > Advanced System Settings > Environment Variables > System Variables > Path > Edit
-* Append the following: C:\DEV\java\6\64\jdk1.6.0_45\bin;
+* Append the following: $DEV\java\6\64\jdk1.6.0_45\bin;
 * Start > cmd
 ```
 java -version
