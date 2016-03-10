@@ -139,7 +139,7 @@ public class NumbersApp {
 * Start > Programs > JProfiler
 * *Quick Start*
 	* Attach to a Locally Running VM 
-	* Select Process Name: TestApp
+	* Select Process Name: NumbersApp
 	* Click Start
 * *Initial Profiling Settings*
 	* Instrumentation
@@ -152,7 +152,7 @@ public class NumbersApp {
 	* Select Telemetries > CPU Load
 	* Select Live Memory > All Objects
 
-##### Terminate TestApp in Eclipse
+##### Terminate NumbersApp in Eclipse
 * Console > Terminate
 
 ##### Create a new class
