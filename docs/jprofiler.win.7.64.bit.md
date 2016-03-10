@@ -79,19 +79,17 @@ java -version
 	  * Click Finish
 
 ##### Create a new class
-```
-File > New > Class
-```
-* *Java Class*
-	* Source folder: testapp/src
-	* Package: (default)
-	* Name: TestApp
-	* Modifiers: Public
-	* Superclass: java.lang.Object
-	* Interfaces: (none)
-	* Which methods and stubs would you like to create?
-		* public static void main(String args[])
-	* Click Finish
+*File > New > Class
+	* *Java Class*
+		* Source folder: testapp/src
+		* Package: (default)
+		* Name: TestApp
+		* Modifiers: Public
+		* Superclass: java.lang.Object
+		* Interfaces: (none)
+		* Which methods and stubs would you like to create?
+			* public static void main(String args[])
+		* Click Finish
 
 ##### Code the class
 ```java
@@ -118,9 +116,7 @@ public class TestApp {
 }
 ```
 ##### Run the app
-```
-Run > Run
-```
+* Run > Run
 
 *Notice the console output*
 
