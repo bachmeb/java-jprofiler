@@ -71,7 +71,7 @@ java -version
 	* *Create a Java Project*
 	  * Project name: testapp
 	  * Use default location: uncheck
-	  * Location: $GIT/java-performance-tuning/projects/testapp
+	  * Location: $DEV\git\java-performance-tuning\projects\testapp
 	  * JRE: Use a project specific JRE 
 	  * Click Configure JREs
 	    * *Installed JREs*
@@ -136,6 +136,7 @@ public class TestApp {
 *Notice the console output*
 
 ##### Open JProfiler
+* Start > Programs > JProfiler
 * *Quick Start*
 	* Attach to a Locally Running VM 
 	* Select Process Name: TestApp
@@ -150,3 +151,12 @@ public class TestApp {
 	* Select Telemetries > Threads
 	* Select Telemetries > CPU Load
 	* Select Live Memory > All Objects
+
+##### Terminate TestApp in Eclipse
+* Console > Terminate
+
+##### Update the TestApp class
+```java
+
+```
+
