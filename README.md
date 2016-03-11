@@ -8,4 +8,4 @@
 * [OProfile](/docs/oprofile.linux.md)
 
 ### Windows
-* [JProfiler](/docs/jprofiler.win.md)
+* [JProfiler](/docs/jprofiler.win.7.64.bit.md)
