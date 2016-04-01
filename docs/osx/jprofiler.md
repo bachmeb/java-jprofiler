@@ -1,4 +1,4 @@
-# jprofiler.osx
+# osx jprofiler
 
 ## References
 * http://resources.ej-technologies.com/jprofiler/help/doc/help.pdf
