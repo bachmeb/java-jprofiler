@@ -4,6 +4,7 @@
 * http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html
 * http://www.javaperformancetuning.com/news/qotm026.shtml
 * http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html
+* https://docs.oracle.com/cd/E13209_01/wlcp/wlss30/configwlss/jvmgc.html
 
 ### Settings
 
@@ -12,18 +13,22 @@
 ```
 JAVA_OPTS="$JAVA_OPTS -Xms5000m"
 ```
+
 ##### Maximum Java heap size
 ```
 JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
 ```
+
 ##### Maximum Java permanent space size
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 ```
+
 ##### Thread-local allocation buffer
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 ```
+
 ##### The (original) copying collector
 *[When this collector kicks in, all application threads are stopped, and the copying collection proceeds using one thread (which means only one CPU even if on a multi-CPU machine). This is known as a stop-the-world collection, because basically the JVM pauses everything else until the collection is completed.](http://www.javaperformancetuning.com/news/qotm026.shtml)*
 ```
