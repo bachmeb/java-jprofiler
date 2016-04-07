@@ -1,3 +1,7 @@
+# run.conf
+
+## References
+* http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html
 
 ```bash
 ## -*- shell-script -*- ######################################################
