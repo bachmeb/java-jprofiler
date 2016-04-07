@@ -1,11 +1,12 @@
 # java-performance-tuning
 
 ### OSX
-* [JProfiler](/docs/jprofiler.osx.md)
+* [JProfiler](/docs/osx/jprofiler.md)
 
 ### Linux
-* [JMap](/docs/jmap.linux.md)
-* [OProfile](/docs/oprofile.linux.md)
+* [JMap](/docs/linux/jmap.md)
+* [JProfiler](/docs/linux/jprofiler.md)
+* [OProfile](/docs/linux/oprofile.md)
 
 ### Windows
-* [JProfiler](/docs/jprofiler.win.7.64.bit.md)
+* [JProfiler](/docs/win/7/64/jprofiler.md)
