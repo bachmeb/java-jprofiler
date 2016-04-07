@@ -34,45 +34,65 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 ```
+
+##### The parallel copying collector
+**
+```
+JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
+```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.server.gcInterval=3600000"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.lang.ClassLoader.allowArraySyntax=true"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -verbose:gc"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -Xloggc:gc.log"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCDetails"
 ```
+
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCTimeStamps"
 ```
+
 
 ### Script
 ```bash
