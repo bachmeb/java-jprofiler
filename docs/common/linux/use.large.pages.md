@@ -3,9 +3,6 @@
 ## References
 * http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html
 
-```
-
-```
 [Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.](http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 
 ##### Check if your system can support large page memory
