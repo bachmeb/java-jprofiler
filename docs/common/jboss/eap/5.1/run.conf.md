@@ -23,8 +23,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 ```
-```
 ##### The parallel copying collector
+```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 ```
 ```
