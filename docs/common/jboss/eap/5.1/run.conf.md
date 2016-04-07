@@ -5,6 +5,8 @@
 * http://www.javaperformancetuning.com/news/qotm026.shtml
 * http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html
 * https://docs.oracle.com/cd/E13209_01/wlcp/wlss30/configwlss/jvmgc.html
+* https://blogs.oracle.com/poonam/entry/uselargepages_on_linux
+* http://jose-manuel.me/2012/11/how-to-enable-the-jvm-option-uselargepages-in-redhat/
 
 ### Settings
 
