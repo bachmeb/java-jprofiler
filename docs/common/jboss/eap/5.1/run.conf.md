@@ -2,6 +2,7 @@
 
 ## References
 * http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html
+* http://www.javaperformancetuning.com/news/qotm026.shtml
 
 ### Settings
 
@@ -23,6 +24,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 ```
 ```
+##### The parallel copying collector
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 ```
 ```
