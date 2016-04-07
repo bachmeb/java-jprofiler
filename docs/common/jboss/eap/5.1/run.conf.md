@@ -23,6 +23,12 @@ JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 ```
+##### The (original) copying collector
+*[When this collector kicks in, all application threads are stopped, and the copying collection proceeds using one thread (which means only one CPU even if on a multi-CPU machine). This is known as a stop-the-world collection, because basically the JVM pauses everything else until the collection is completed.](http://www.javaperformancetuning.com/news/qotm026.shtml)*
+```
+Enabled by default.
+```
+
 ##### The parallel copying collector
 *[Like the original copying collector, this is a stop-the-world collector. However this collector parallelizes the copying collection over multiple threads, which is more efficient than the original single-thread copying collector for multi-CPU machines (though not for single-CPU machines). This algorithm potentially speeds up young generation collection by a factor equal to the number of CPUs available, when compared to the original singly-threaded copying collector.](http://www.javaperformancetuning.com/news/qotm026.shtml)*
 ```
