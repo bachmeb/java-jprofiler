@@ -3,6 +3,7 @@
 ## References
 * http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html
 * http://www.javaperformancetuning.com/news/qotm026.shtml
+* http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html
 
 ### Settings
 
