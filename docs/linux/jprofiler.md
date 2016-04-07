@@ -40,5 +40,6 @@ ls -l jprofiler9/
 
 ##### Start jprofiler
 ```
-jprofiler/bin/jprofiler
+cd /opt/jprofiler/jprofiler9/bin
+./jprofiler
 ```
