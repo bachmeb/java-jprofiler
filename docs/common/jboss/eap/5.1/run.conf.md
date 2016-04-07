@@ -37,6 +37,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 ```
 
 ##### Use large pages
+* [Configure Linux to use large pages.](/docs/common/linux/use.large.pages.md)  
+
 *[Beginning with Java SE 5.0 there is a cross-platform flag for requesting large memory pages: -XX:+UseLargePages (on by default for Solaris, off by default for Windows and Linux). The goal of large page support is to optimize processor Translation-Lookaside Buffers. A Translation-Lookaside Buffer (TLB) is a page translation cache that holds the most-recently used virtual-to-physical address translations. TLB is a scarce system resource. A TLB miss can be costly as the processor must then read from the hierarchical page table, which may require multiple memory accesses. By using bigger page size, a single TLB entry can represent larger memory range. There will be less pressure on TLB and memory-intensive applications may have better performance. However please note sometimes using large page memory can negatively affect system performance. For example, when a large mount of memory is pinned by an application, it may create a shortage of regular memory and cause excessive paging in other applications and slow down the entire system. Also please note for a system that has been up for a long time, excessive fragmentation can make it impossible to reserve enough large page memory. When it happens, either the OS or JVM will revert to using regular pages.](http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)*
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
