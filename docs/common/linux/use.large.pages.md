@@ -9,14 +9,12 @@
 ```
 cat /proc/meminfo | grep Huge 
 ```
+[If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.](http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 ```
 HugePages_Total: 0 
 HugePages_Free: 0 
 Hugepagesize: 2048 kB 
 ```
-
-[If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.](http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
-
 
 ##### Increase SHMMAX value
 *It must be larger than the Java heap size. On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable:*
