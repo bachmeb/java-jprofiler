@@ -3,6 +3,69 @@
 ## References
 * http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html
 
+### Settings
+
+
+##### Initial Java heap size
+```
+JAVA_OPTS="$JAVA_OPTS -Xms5000m"
+```
+##### Maximum Java heap size
+```
+JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
+```
+##### Maximum Java permanent space size
+```
+JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
+```
+##### Thread-local allocation buffer
+```
+JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.server.gcInterval=3600000"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -Dsun.lang.ClassLoader.allowArraySyntax=true"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -verbose:gc"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -Xloggc:gc.log"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCDetails"
+```
+```
+JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCTimeStamps"
+```
+
+### Script
 ```bash
 ## -*- shell-script -*- ######################################################
 ##                                                                          ##
