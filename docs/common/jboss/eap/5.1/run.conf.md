@@ -7,6 +7,9 @@
 * https://docs.oracle.com/cd/E13209_01/wlcp/wlss30/configwlss/jvmgc.html
 * https://blogs.oracle.com/poonam/entry/uselargepages_on_linux
 * http://jose-manuel.me/2012/11/how-to-enable-the-jvm-option-uselargepages-in-redhat/
+* http://stackoverflow.com/questions/20498651/xxuseconcmarksweepgc-what-is-default-young-generation-collector
+* http://www.fasterj.com/articles/oraclecollectors1.shtml
+* https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/
 
 ### Settings
 
@@ -51,6 +54,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 ```
 
+##### Activate the CMS Collector
+*[This flag is needed to activate the CMS Collector in the first place. By default, HotSpot uses the Throughput Collector instead.](https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/)*
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
 ```
