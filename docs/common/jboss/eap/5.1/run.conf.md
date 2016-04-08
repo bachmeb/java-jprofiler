@@ -46,8 +46,6 @@ JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
 
 * *Options that are specified with -XX are not stable and are not recommended for casual use. These options are subject to change without notice.* (http://indrayanblog.blogspot.com/2011/03/cxv.html)
 
-* *The section of the heap that is reserved for the permanent generation holds all of the reflective data for the JVM.* (http://support.sas.com/documentation/cdl/en/citmblcg/64709/HTML/default/viewer.htm#n1hplivnigb4ptn1nbn5kixqja3m.htm)
-
 * *The permanent generation is special because it holds meta-data describing user classes (classes that are not part of the Java language).* 
 * *If you set the initial size and maximum size to equal values you may be able to avoid some full garbage collections that may occur if/when the permanent generation needs to be resized.* (http://www.freshblurbs.com/blog/2005/05/19/explaining-java-lang-outofmemoryerror-permgen-space.html)
 
