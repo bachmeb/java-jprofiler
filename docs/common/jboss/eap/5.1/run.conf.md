@@ -13,6 +13,7 @@
 * http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf
 * http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html
 * https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html
+* https://developer.jboss.org/blogs/acoliver/2006/03/21/if-you-dont-do-this-jboss-will-run-really-slowly?_sscc=t
 
 ### Settings
 
@@ -132,6 +133,7 @@ JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
 
 ##### Client periodic full collection frequency
 * *The Sun ONE Application Server uses RMI in the Administration module for monitoring. Garbage cannot be collected in RMI based distributed applications without occasional local collections, so RMI forces a periodic full collection. The frequency of these collections can be controlled with the property -sun.rmi.dgc.client.gcInterval. For example, - java -Dsun.rmi.dgc.client.gcInterval=3600000 specifies explicit collection once per hour instead of the default rate of once per minute.* ()
+* *By default, the RMI subsystem forces a full garbage collection once per minute. This means that all threads are paused and the entire heap is scanned. This takes a good while, especially under load.* (https://developer.jboss.org/blogs/acoliver/2006/03/21/if-you-dont-do-this-jboss-will-run-really-slowly?_sscc=t)
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
 ```
