@@ -25,9 +25,13 @@ JAVA_OPTS="$JAVA_OPTS -Xms5000m"
 
 ##### Maximum Java heap size
 * *Specify the maximum size, in bytes, of the memory allocation pool. This value must a multiple of 1024 greater than 2MB. Append the letter k or K to indicate kilobytes, or m or M to indicate megabytes. The default value is chosen at runtime based on system configuration. * (http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html)
+
 * *On server-class machines running either VM (client or server) with the parallel garbage collector (-XX:+UseParallelGC) the initial heap size and maximum heap size have changed as follows. Maximum heap size: Smaller of 1/4th of the physical memory or 1GB. Before J2SE 5.0, the default maximum heap size was 64MB. You can override this default using the -Xmx command-line option.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
+
 * *Do not choose a maximum value for the heap unless you know that the heap is greater than the default maximum heap size. Choose a throughput goal that is sufficient for your application.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
+
 * *In an ideal situation the heap will grow to a value (less than the maximum) that will support the chosen throughput goal.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
+
 * *If the heap grows to its maximum, the throughput cannot be met within that maximum. Set the maximum heap as large as you can, but no larger than the size of physical memory on the platform, and execute the application again. If the throughput goal can still not be met, then it is too high for the available memory on the platform.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
 * ** (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
 ```
@@ -37,6 +41,12 @@ JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
 ##### Maximum Java permanent space size
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
+```
+
+##### Maximum Garbage Collection Pause Time
+* *A hint to the virtual machine that pause times of nnn milliseconds or less are desired. The VM will adjust the java heap size and other GC-related parameters in an attempt to keep GC-induced pauses shorter than nnn milliseconds. Note that this may cause the VM to reduce overall throughput, and in some cases the VM will not be able to meet the desired pause time goal. By default there is no pause time goal. There are definite limitations on how well a pause time goal can be met. The pause time for a GC depends on the amount of live data in the heap. The minor and major collections depend in different ways on the amount of live data. This parameter should be used with caution. A value that is too small will cause the system to spend an excessive amount of time doing garbage collection.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
+```
+-XX:MaxGCPauseMillis=nnn
 ```
 
 ##### Thread-local allocation buffer
