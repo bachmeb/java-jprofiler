@@ -50,6 +50,8 @@ JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
 
 * *The permanent generation is special because it holds meta-data describing user classes (classes that are not part of the Java language).* 
 * *If you set the initial size and maximum size to equal values you may be able to avoid some full garbage collections that may occur if/when the permanent generation needs to be resized.* (http://www.freshblurbs.com/blog/2005/05/19/explaining-java-lang-outofmemoryerror-permgen-space.html)
+
+* *Beside the heap memory containing the living data, the JVM needs additional information, especially classes descriptions or metadata. All this stuff is stored in a dedicated area named Permanent generation.* (http://blog.java-hoster.com/2011/java-course/performance/jvm-memory-and-java-heap-space)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 ```
