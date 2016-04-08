@@ -79,6 +79,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelGC"
 
 ##### Parallel Compaction
 * *Parallel compaction complements the existing parallel collector by performing full GCs in parallel to take advantage of multiprocessor (or multi-threaded) hardware. As the name suggests, it is best suited to platforms that have two or more CPUs or two or more hardware threads. It was first made available in JDK 5.0 update 6; the implementation in JDK 6 contains significant performance improvements. Prior to the availability of parallel compaction, the parallel collector would perform young generation collections (young GCs) in parallel, but full GCs were performed single-threaded. (During a young GC, only the young generation is collected; during a full GC the entire heap is collected.) Parallel compaction performs full GCs in parallel, resulting in lower garbage collection overhead and better application performance, particularly for applications with large heaps running on multiprocessor hardware.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/par-compaction-6.html)
+* *Enabling this option automatically sets -XX:+UseParallelGC.* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelOldGC"
 ```
