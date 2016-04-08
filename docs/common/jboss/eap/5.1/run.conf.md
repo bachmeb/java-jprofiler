@@ -146,22 +146,32 @@ JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.server.gcInterval=3600000"
 ```
 
+##### Allow Array Syntax
+* *As Sun JDK (Oracle JDK) 6 class loading implementation was changed1, java.lang.ClassNotFoundException is thrown when Array class name is specified to an argument of ClassLoader.loadClass(classname). -Dsun.lang.ClassLoader.allowArraySyntax=true is the workaround for this change. The option was added to run.conf by JBPAPP-907 since EAP 4.x/5.x support JDK 6* (https://access.redhat.com/solutions/33387)
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.lang.ClassLoader.allowArraySyntax=true"
 ```
 
+##### Verbose Garbage Collection
+* *The -verbose:gc option enables logging of garbage collection (GC) information. It can be combined with other HotSpot VM specific options such as -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps to get further information about the GC. The information output includes the size of the generations before and after each GC, total size of the heap, the size of objects promoted, and the time taken.* (http://www.oracle.com/technetwork/java/javase/clopts-139448.html#gbmpt)
 ```
 JAVA_OPTS="$JAVA_OPTS -verbose:gc"
 ```
 
-```
+##### Verbose Garbage Collection Log File
+* *If you simply use the verbose:gc flag, you'll have GC log output sent to the stdout console. Now, if you use the -Xloggc:[filename] switch, the GC data will be sent to a log file which you can grep through later. But either way, you get the the same GC data ...right? Wrong. The -Xloggc:[filename] switch has the additional effect of turning on the -XX:+PrintGCTimeStamps switch and hence gives your log files the added benefit of time stamps.* ()
+``` 
 JAVA_OPTS="$JAVA_OPTS -Xloggc:gc.log"
 ```
 
+##### Print Garbage Collection Details
+* *Print a long message with more details after each garbage collection is done.* (http://www.herongyang.com/JVM/Memory-PrintGCDetails-Garbage-Collection-Logging.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCDetails"
 ```
 
+##### Print Garbage Collection Time Stamps
+* *Print a timestamp relative to the JVM start time when a garbage collection occurs.* (http://www.herongyang.com/JVM/Memory-PrintGCDetails-Garbage-Collection-Logging.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCTimeStamps"
 ```
