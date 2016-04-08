@@ -162,6 +162,11 @@ JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
 
 ##### Maximum size of new generation (in bytes)
 * *Since 1.4, MaxNewSize is computed as a function of NewRatio. [1.3.1 Sparc: 32m; 1.3.1 x86: 2.5m.]* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
+
+* *To size the Java heap:*
+  * *Decide the total amount of memory you can afford for the JVM. Accordingly, graph your own performance metric against young generation sizes to find the best setting.*
+  * *Make plenty of memory available to the young generation. The default is calculated from NewRatio and the -Xmx setting.*
+  * *Larger eden or younger generation spaces increase the spacing between full GCs. But young space collections could take a proportionally longer time. In general, keep the eden size between one fourth and one third the maximum heap size. The old generation must be larger than the new generation.* (https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
 ```
