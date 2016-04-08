@@ -112,10 +112,14 @@ JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
 JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
 ```
 
+##### Default size of new generation (in bytes)
+* * [5.0 and newer: 64 bit VMs are scaled 30% larger; x86: 1m; x86, 5.0 and older: 640k]* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
 ```
 
+##### Maximum size of new generation (in bytes)
+* *Since 1.4, MaxNewSize is computed as a function of NewRatio. [1.3.1 Sparc: 32m; 1.3.1 x86: 2.5m.]* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
 ```
