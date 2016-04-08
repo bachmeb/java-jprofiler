@@ -61,7 +61,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 ```
 
 ##### Activate the CMS Collector
-*[This flag is needed to activate the CMS Collector in the first place. By default, HotSpot uses the Throughput Collector instead.](https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/)*
+* *This flag is needed to activate the CMS Collector in the first place. By default, HotSpot uses the Throughput Collector instead.* (https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
 ```
