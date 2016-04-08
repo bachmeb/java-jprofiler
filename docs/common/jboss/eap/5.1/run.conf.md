@@ -92,7 +92,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelOldGC"
 JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 ```
 
-##### Activate the CMS Collector
+##### Use Concurrent Mark Sweep Garbage Collector
 * *This flag is needed to activate the CMS Collector in the first place. By default, HotSpot uses the Throughput Collector instead.* (https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/)
 * *The concurrent mark sweep collector, also known as the concurrent collector or CMS, is targeted at applications that are sensitive to garbage collection pauses. It performs most garbage collection activity concurrently, i.e., while the application threads are running, to keep garbage collection-induced pauses short.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/cms-6.html)
 ```
