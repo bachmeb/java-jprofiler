@@ -132,6 +132,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
 ```
 
 ##### No Class Garbage Collection
+* *This option disables garbage collection of classes. Using -XnoClassGC can save some garbage collection time, which will shorten interruptions during the application run.* (https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html)
+
 * *This option switches off garbage collection of storage associated with Java™ technology classes that are no longer being used by the JVM. The default behavior is as defined by -Xclassgc. Enabling this option is not recommended except under the direction of the IBM support team. The reason is the option can cause unlimited native memory growth, leading to out-of-memory errors.* (https://www.ibm.com/support/knowledgecenter/SSYKE2_7.0.0/com.ibm.java.win.71.doc/diag/appendixes/cmdline/Xnoclassgc.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
