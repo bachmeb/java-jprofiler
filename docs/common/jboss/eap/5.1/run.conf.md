@@ -15,6 +15,7 @@
 * https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html
 * https://developer.jboss.org/blogs/acoliver/2006/03/21/if-you-dont-do-this-jboss-will-run-really-slowly?_sscc=t
 * http://scn.sap.com/people/desiree.matas/blog/2011/07/19/how-to-read-the-garbage-collector-output-for-sun-jvm
+* https://www.doag.org/formes/pubfiles/7497939/docs/Konferenz/2015/vortraege/Middleware/2015-K-MW-Daniel_Joray-Haben_Sie_Ihre_Weblogic-Umgebung_im_Griff_-Manuskript.pdf
 
 ### Settings
 
