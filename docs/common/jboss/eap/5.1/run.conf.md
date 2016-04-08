@@ -40,6 +40,11 @@ JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
 ```
 
 ##### Maximum Java permanent space size
+* *Size of the Permanent Generation.  [5.0 and newer: 64 bit VMs are scaled 30% larger; 1.4 amd64: 96m; 1.3.1 -client: 32m.]* (http://www.oracle.com/technetwork/articles/java/vmoptions-jsp-140102.html)
+
+* *Options that are specified with -XX are not stable and are not recommended for casual use. These options are subject to change without notice.* (http://indrayanblog.blogspot.com/2011/03/cxv.html)
+
+* *The section of the heap that is reserved for the permanent generation holds all of the reflective data for the JVM.* (http://support.sas.com/documentation/cdl/en/citmblcg/64709/HTML/default/viewer.htm#n1hplivnigb4ptn1nbn5kixqja3m.htm)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 ```
