@@ -65,7 +65,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 ```
 -XX:GCTimeRatio=nnn
 ```
-##### Thread-local allocation buffer
+##### Thread-local allocation buffer (New generation)
 * *Thread-local allocation buffer. Used to allocate heap space quickly without synchronization. Compiled code has a "fast path" of a few instructions which tries to bump a high-water mark in the current thread's TLAB, successfully allocating an object if the bumped mark falls before a TLAB-specific limit address.* (http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html)
 
 * *When new objects are allocated on the heap, if TLAB ( Thread Local Allocation Buffers ) are enabled, the object will first be placed in the TLAB, this buffer only exists within eden space. Each thread has its own TLAB to allow faster memory allocation, as the thread is able to allocate additional memory within the buffer without a lock. The TLAB is pre allocated for each thread. As a thread uses memory within the TLAB it moves a pointer accordingly.*  
