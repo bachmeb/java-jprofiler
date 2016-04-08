@@ -71,19 +71,19 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 (Enabled by default)
 ```
 
-##### Use Parallel New Garbage Collection
+##### Use Parallel New Garbage Collection (New generation)
 * *The parallel copying collector. Like the original copying collector, this is a stop-the-world collector. However this collector parallelizes the copying collection over multiple threads, which is more efficient than the original single-thread copying collector for multi-CPU machines (though not for single-CPU machines). This algorithm potentially speeds up young generation collection by a factor equal to the number of CPUs available, when compared to the original singly-threaded copying collector.* (http://www.javaperformancetuning.com/news/qotm026.shtml)*
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 ```
 
-##### Use Parallel Garbage Collection
+##### Use Parallel Garbage Collection (New generation)
 * *The parallel scavenge collector. This is like the parallel copying collector, but the algorithm is tuned for gigabyte heaps (over 10GB) on multi-CPU machines. This collection algorithm is designed to maximize throughput while minimizing pauses. It has an optional adaptive tuning policy which will automatically resize heap spaces. If you use this collector, you can only use the the original mark-sweep collector in the old generation (i.e. the newer old generation concurrent collector cannot work with this young generation collector).* (http://www.javaperformancetuning.com/news/qotm026.shtml)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelGC"
 ```
 
-##### Use Parallel Old Garbage Collection
+##### Use Parallel Old Garbage Collection (Old generation)
 * *Parallel compaction complements the existing parallel collector by performing full GCs in parallel to take advantage of multiprocessor (or multi-threaded) hardware.*
 * *As the name suggests, it is best suited to platforms that have two or more CPUs or two or more hardware threads.*
 * *It was first made available in JDK 5.0 update 6; the implementation in JDK 6 contains significant performance improvements.*
@@ -103,7 +103,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelOldGC"
 JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 ```
 
-##### Use Concurrent Mark Sweep Garbage Collector
+##### Use Concurrent Mark Sweep Garbage Collector (Old generation)
 * *This flag is needed to activate the CMS Collector in the first place. By default, HotSpot uses the Throughput Collector instead.* (https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/)
 
 * *The concurrent mark sweep collector, also known as the concurrent collector or CMS, is targeted at applications that are sensitive to garbage collection pauses. It performs most garbage collection activity concurrently, i.e., while the application threads are running, to keep garbage collection-induced pauses short.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/cms-6.html)
