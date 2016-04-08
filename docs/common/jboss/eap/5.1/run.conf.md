@@ -124,10 +124,14 @@ JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
 JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
 ```
 
+##### 
+* *This option warns when an XML entity is defined as SYSTEM with protocol is not "file://" or "vfsfile://", which is most likely something not expected.* (https://access.redhat.com/solutions/58381)
 ```
 JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
 ```
 
+##### Client periodic full collection frequency
+* *The Sun ONE Application Server uses RMI in the Administration module for monitoring. Garbage cannot be collected in RMI based distributed applications without occasional local collections, so RMI forces a periodic full collection. The frequency of these collections can be controlled with the property -sun.rmi.dgc.client.gcInterval. For example, - java -Dsun.rmi.dgc.client.gcInterval=3600000 specifies explicit collection once per hour instead of the default rate of once per minute.* ()
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
 ```
