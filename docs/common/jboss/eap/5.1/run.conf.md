@@ -71,6 +71,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
 JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
 ```
 
+##### Survivor Ratio
+* *The SurvivorRatio parameter controls the size of the two survivor spaces. For example, -XX:SurvivorRatio=6 sets the ratio between each survivor space and eden to be 1:6, each survivor space will be one eighth of the young generation. The default for Solaris is 32. If survivor spaces are too small, copying collection overflows directly into the old generation. If survivor spaces are too large, they will be empty. At each GC, the JVM determines the number of times an object can be copied before it is tenured, called the tenure threshold. This threshold is chosen to keep the survivor space half full.* (https://docs.oracle.com/cd/E19159-01/819-3681/abeil/index.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
 ```
