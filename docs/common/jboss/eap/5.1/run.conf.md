@@ -13,17 +13,17 @@
 * http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf
 * http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html
 
-
-
 ### Settings
 
-
 ##### Initial Java heap size
+* *Specify the initial size, in bytes, of the memory allocation pool. This value must be a multiple of 1024 greater than 1MB. Append the letter k or K to indicate kilobytes, or m or M to indicate megabytes. The default value is chosen at runtime based on system configuration.* (http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html)
+* *On server-class machines running either VM (client or server) with the parallel garbage collector (-XX:+UseParallelGC) the initial heap size and maximum heap size have changed as follows. Initial heap size: Larger of 1/64th of the machine's physical memory on the machine or some reasonable minimum. Before J2SE 5.0, the default initial heap size was a reasonable minimum, which varies by platform. You can override this default using the -Xms command-line option.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -Xms5000m"
 ```
 
 ##### Maximum Java heap size
+* *Specify the maximum size, in bytes, of the memory allocation pool. This value must a multiple of 1024 greater than 2MB. Append the letter k or K to indicate kilobytes, or m or M to indicate megabytes. The default value is chosen at runtime based on system configuration. * (http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
 ```
