@@ -65,6 +65,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
 ```
 
+##### No Class Garbage Collection
+* *This option switches off garbage collection of storage associated with Java™ technology classes that are no longer being used by the JVM. The default behavior is as defined by -Xclassgc. Enabling this option is not recommended except under the direction of the IBM support team. The reason is the option can cause unlimited native memory growth, leading to out-of-memory errors.* (https://www.ibm.com/support/knowledgecenter/SSYKE2_7.0.0/com.ibm.java.win.71.doc/diag/appendixes/cmdline/Xnoclassgc.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
 ```
