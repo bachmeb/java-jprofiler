@@ -67,19 +67,19 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 (Enabled by default)
 ```
 
-##### The parallel copying collector
-* *Like the original copying collector, this is a stop-the-world collector. However this collector parallelizes the copying collection over multiple threads, which is more efficient than the original single-thread copying collector for multi-CPU machines (though not for single-CPU machines). This algorithm potentially speeds up young generation collection by a factor equal to the number of CPUs available, when compared to the original singly-threaded copying collector.* (http://www.javaperformancetuning.com/news/qotm026.shtml)*
+##### Use Parallel New Garbage Collection
+* *The parallel copying collector. Like the original copying collector, this is a stop-the-world collector. However this collector parallelizes the copying collection over multiple threads, which is more efficient than the original single-thread copying collector for multi-CPU machines (though not for single-CPU machines). This algorithm potentially speeds up young generation collection by a factor equal to the number of CPUs available, when compared to the original singly-threaded copying collector.* (http://www.javaperformancetuning.com/news/qotm026.shtml)*
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 ```
 
-##### The parallel scavenge collector
-* *This is like the parallel copying collector, but the algorithm is tuned for gigabyte heaps (over 10GB) on multi-CPU machines. This collection algorithm is designed to maximize throughput while minimizing pauses. It has an optional adaptive tuning policy which will automatically resize heap spaces. If you use this collector, you can only use the the original mark-sweep collector in the old generation (i.e. the newer old generation concurrent collector cannot work with this young generation collector).* (http://www.javaperformancetuning.com/news/qotm026.shtml)
+##### Use Parallel Garbage Collection
+* *The parallel scavenge collector. This is like the parallel copying collector, but the algorithm is tuned for gigabyte heaps (over 10GB) on multi-CPU machines. This collection algorithm is designed to maximize throughput while minimizing pauses. It has an optional adaptive tuning policy which will automatically resize heap spaces. If you use this collector, you can only use the the original mark-sweep collector in the old generation (i.e. the newer old generation concurrent collector cannot work with this young generation collector).* (http://www.javaperformancetuning.com/news/qotm026.shtml)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelGC"
 ```
 
-##### Parallel Compaction
+##### Use Parallel Old Garbage Collection
 * *Parallel compaction complements the existing parallel collector by performing full GCs in parallel to take advantage of multiprocessor (or multi-threaded) hardware. As the name suggests, it is best suited to platforms that have two or more CPUs or two or more hardware threads. It was first made available in JDK 5.0 update 6; the implementation in JDK 6 contains significant performance improvements. Prior to the availability of parallel compaction, the parallel collector would perform young generation collections (young GCs) in parallel, but full GCs were performed single-threaded. (During a young GC, only the young generation is collected; during a full GC the entire heap is collected.) Parallel compaction performs full GCs in parallel, resulting in lower garbage collection overhead and better application performance, particularly for applications with large heaps running on multiprocessor hardware.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/par-compaction-6.html)
 * *Enabling this option automatically sets -XX:+UseParallelGC.* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 ```
