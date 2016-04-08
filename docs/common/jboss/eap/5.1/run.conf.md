@@ -297,3 +297,11 @@ JAVA_OPTS="$JAVA_OPTS -Dsun.lang.ClassLoader.allowArraySyntax=true"
 #JAVA_OPTS="$JAVA_OPTS -Xrunjdwp:transport=dt_shmem,address=jboss,server=y,suspend=n"
 
 ```
+
+### Find the gc.log file
+```
+sudo find / -name gc.log
+```
+```c
+// /opt/jboss/gc.log
+```
