@@ -81,6 +81,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelGC"
 
 ##### Use Parallel Old Garbage Collection
 * *Parallel compaction complements the existing parallel collector by performing full GCs in parallel to take advantage of multiprocessor (or multi-threaded) hardware. As the name suggests, it is best suited to platforms that have two or more CPUs or two or more hardware threads. It was first made available in JDK 5.0 update 6; the implementation in JDK 6 contains significant performance improvements. Prior to the availability of parallel compaction, the parallel collector would perform young generation collections (young GCs) in parallel, but full GCs were performed single-threaded. (During a young GC, only the young generation is collected; during a full GC the entire heap is collected.) Parallel compaction performs full GCs in parallel, resulting in lower garbage collection overhead and better application performance, particularly for applications with large heaps running on multiprocessor hardware.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/par-compaction-6.html)
+
 * *Enabling this option automatically sets -XX:+UseParallelGC.* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelOldGC"
@@ -88,6 +89,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelOldGC"
 
 ##### Use large pages
 * [Configure Linux to use large pages.](/docs/common/linux/use.large.pages.md)  
+
 * *Beginning with Java SE 5.0 there is a cross-platform flag for requesting large memory pages: -XX:+UseLargePages (on by default for Solaris, off by default for Windows and Linux). The goal of large page support is to optimize processor Translation-Lookaside Buffers. A Translation-Lookaside Buffer (TLB) is a page translation cache that holds the most-recently used virtual-to-physical address translations. TLB is a scarce system resource. A TLB miss can be costly as the processor must then read from the hierarchical page table, which may require multiple memory accesses. By using bigger page size, a single TLB entry can represent larger memory range. There will be less pressure on TLB and memory-intensive applications may have better performance. However please note sometimes using large page memory can negatively affect system performance. For example, when a large mount of memory is pinned by an application, it may create a shortage of regular memory and cause excessive paging in other applications and slow down the entire system. Also please note for a system that has been up for a long time, excessive fragmentation can make it impossible to reserve enough large page memory. When it happens, either the OS or JVM will revert to using regular pages.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
@@ -95,6 +97,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 
 ##### Use Concurrent Mark Sweep Garbage Collector
 * *This flag is needed to activate the CMS Collector in the first place. By default, HotSpot uses the Throughput Collector instead.* (https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/)
+
 * *The concurrent mark sweep collector, also known as the concurrent collector or CMS, is targeted at applications that are sensitive to garbage collection pauses. It performs most garbage collection activity concurrently, i.e., while the application threads are running, to keep garbage collection-induced pauses short.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/cms-6.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
@@ -114,6 +117,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
 
 ##### Default size of new generation (in bytes)
 * *[5.0 and newer: 64 bit VMs are scaled 30% larger; x86: 1m; x86, 5.0 and older: 640k]* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
+
 * *The NewSize and MaxNewSize parameters control the new generation’s minimum and maximum size. Regulate the new generation size by setting these parameters equal. The bigger the younger generation, the less often minor collections occur. The size of the young generation relative to the old generation is controlled by NewRatio. For example, setting -XX:NewRatio=3 means that the ratio between the old and young generation is 1:3, the combined size of eden and the survivor spaces will be fourth of the heap.* (https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
@@ -133,7 +137,9 @@ JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
 
 ##### Periodic full collection frequency
 * *The Sun ONE Application Server uses RMI in the Administration module for monitoring. Garbage cannot be collected in RMI based distributed applications without occasional local collections, so RMI forces a periodic full collection. The frequency of these collections can be controlled with the property -sun.rmi.dgc.client.gcInterval. For example, - java -Dsun.rmi.dgc.client.gcInterval=3600000 specifies explicit collection once per hour instead of the default rate of once per minute.* ()
+
 * *By default, the RMI subsystem forces a full garbage collection once per minute. This means that all threads are paused and the entire heap is scanned. This takes a good while, especially under load.* (https://developer.jboss.org/blogs/acoliver/2006/03/21/if-you-dont-do-this-jboss-will-run-really-slowly?_sscc=t)
+
 * *Apparently when your application either exposes its services via RMI or consumes any services over RMI, you are bound to have an additional garbage collection cycle. As the RMI documentation says: "When it is necessary to ensure that unreachable remote objects are unexported and garbage collected in a timely fashion, the value of this property represents the maximum interval (in milliseconds) that the Java RMI runtime will allow between garbage collections of the local heap. The default value is 3600000 milliseconds (one hour)."* (https://plumbr.eu/blog/garbage-collection/rmi-enforcing-full-gc-to-run-hourly)
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
