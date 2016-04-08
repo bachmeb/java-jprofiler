@@ -35,7 +35,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 ```
 
 ##### The (original) copying collector
-*[When this collector kicks in, all application threads are stopped, and the copying collection proceeds using one thread (which means only one CPU even if on a multi-CPU machine). This is known as a stop-the-world collection, because basically the JVM pauses everything else until the collection is completed.](http://www.javaperformancetuning.com/news/qotm026.shtml)*
+* *When this collector kicks in, all application threads are stopped, and the copying collection proceeds using one thread (which means only one CPU even if on a multi-CPU machine). This is known as a stop-the-world collection, because basically the JVM pauses everything else until the collection is completed.* (http://www.javaperformancetuning.com/news/qotm026.shtml)
 ```
 (Enabled by default)
 ```
