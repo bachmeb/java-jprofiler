@@ -4,6 +4,8 @@
 * http://sahuly.blogspot.com/2012/02/how-to-connect-jprofiler-in-remote.html
 * http://stackoverflow.com/questions/26751876/how-to-jprofile-on-linux-system-no-gui
 * https://www.ej-technologies.com/download/jprofiler/files
+* https://docs.oracle.com/cd/E15289_01/doc.40/e15062/optionx.htm
+* http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html
 
 ##### Get a link to download JProfiler TAR.GZ Archive (69 MB) for Linux
 * https://www.ej-technologies.com/download/jprofiler/files
@@ -42,4 +44,17 @@ ls -l jprofiler9/
 ```
 cd /opt/jprofiler/jprofiler9/bin
 ./jprofiler
+```
+
+## Configure JBoss to accept remote JProfiler connection
+##### Edit JBOSS_HOME/bin/run.conf
+*This value (/opt/jprofiler/jprofiler9/bin/agent.jar) should point to the JProfiler installation on the Linux machine.*
+```
+# Enable Remote JProfiler Connection
+JAVA_OPTS = "$JAVA_OPTS –Xrunjprofiler:port=8849
+JAVA_OPTS = "$JAVA_OPTS -Xbootclasspath/a:/opt/jprofiler/jprofiler9/bin/agent.jar"
+
+LD_LIBRARY_PATH="/opt/jprofiler/jprofiler9/bin/linux-x86"
+
+export LD_LIBRARY_PATH
 ```
