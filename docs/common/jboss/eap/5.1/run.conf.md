@@ -181,7 +181,7 @@ JAVA_OPTS="$JAVA_OPTS -verbose:gc"
 ```
 
 ##### Verbose Garbage Collection Log File
-* *If you simply use the verbose:gc flag, you'll have GC log output sent to the stdout console. Now, if you use the -Xloggc:[filename] switch, the GC data will be sent to a log file which you can grep through later. But either way, you get the the same GC data ...right? Wrong. The -Xloggc:[filename] switch has the additional effect of turning on the -XX:+PrintGCTimeStamps switch and hence gives your log files the added benefit of time stamps.* ()
+* *If you simply use the verbose:gc flag, you'll have GC log output sent to the stdout console. Now, if you use the -Xloggc:[filename] switch, the GC data will be sent to a log file which you can grep through later. But either way, you get the the same GC data ...right? Wrong. The -Xloggc:[filename] switch has the additional effect of turning on the -XX:+PrintGCTimeStamps switch and hence gives your log files the added benefit of time stamps.* (https://blogs.oracle.com/moazam/entry/logging_gc_output_to_a)
 ``` 
 JAVA_OPTS="$JAVA_OPTS -Xloggc:gc.log"
 ```
