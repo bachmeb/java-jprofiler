@@ -127,6 +127,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
 * *[5.0 and newer: 64 bit VMs are scaled 30% larger; x86: 1m; x86, 5.0 and older: 640k]* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 
 * *The NewSize and MaxNewSize parameters control the new generation’s minimum and maximum size. Regulate the new generation size by setting these parameters equal. The bigger the younger generation, the less often minor collections occur. The size of the young generation relative to the old generation is controlled by NewRatio. For example, setting -XX:NewRatio=3 means that the ratio between the old and young generation is 1:3, the combined size of eden and the survivor spaces will be fourth of the heap.* (https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html)
+
+* *By default, NewRatio for the Server JVM is 2, the old generation occupies 2/3 of the heap while the new generation occupies 1/3* (https://www.doag.org/formes/pubfiles/7497939/docs/Konferenz/2015/vortraege/Middleware/2015-K-MW-Daniel_Joray-Haben_Sie_Ihre_Weblogic-Umgebung_im_Griff_-Manuskript.pdf)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
 ```
