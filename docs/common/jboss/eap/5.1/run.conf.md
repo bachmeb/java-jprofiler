@@ -14,6 +14,7 @@
 * http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html
 * https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html
 * https://developer.jboss.org/blogs/acoliver/2006/03/21/if-you-dont-do-this-jboss-will-run-really-slowly?_sscc=t
+* http://scn.sap.com/people/desiree.matas/blog/2011/07/19/how-to-read-the-garbage-collector-output-for-sun-jvm
 
 ### Settings
 
@@ -80,7 +81,11 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelGC"
 ```
 
 ##### Use Parallel Old Garbage Collection
-* *Parallel compaction complements the existing parallel collector by performing full GCs in parallel to take advantage of multiprocessor (or multi-threaded) hardware. As the name suggests, it is best suited to platforms that have two or more CPUs or two or more hardware threads. It was first made available in JDK 5.0 update 6; the implementation in JDK 6 contains significant performance improvements. Prior to the availability of parallel compaction, the parallel collector would perform young generation collections (young GCs) in parallel, but full GCs were performed single-threaded. (During a young GC, only the young generation is collected; during a full GC the entire heap is collected.) Parallel compaction performs full GCs in parallel, resulting in lower garbage collection overhead and better application performance, particularly for applications with large heaps running on multiprocessor hardware.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/par-compaction-6.html)
+* *Parallel compaction complements the existing parallel collector by performing full GCs in parallel to take advantage of multiprocessor (or multi-threaded) hardware.*
+* *As the name suggests, it is best suited to platforms that have two or more CPUs or two or more hardware threads.*
+* *It was first made available in JDK 5.0 update 6; the implementation in JDK 6 contains significant performance improvements.*
+* *Prior to the availability of parallel compaction, the parallel collector would perform young generation collections (young GCs) in parallel, but full GCs were performed single-threaded. (During a young GC, only the young generation is collected; during a full GC the entire heap is collected.)*
+* *Parallel compaction performs full GCs in parallel, resulting in lower garbage collection overhead and better application performance, particularly for applications with large heaps running on multiprocessor hardware.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/par-compaction-6.html)
 
 * *Enabling this option automatically sets -XX:+UseParallelGC.* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 ```
