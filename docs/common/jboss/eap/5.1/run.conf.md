@@ -49,6 +49,11 @@ JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 -XX:MaxGCPauseMillis=nnn
 ```
 
+##### Garbage Time Ratio
+* *A hint to the virtual machine that it's desirable that not more than 1 / (1 + nnn) of the application execution time be spent in the collector. For example -XX:GCTimeRatio=19 sets a goal of 5% of the total time for GC and throughput goal of 95%. That is, the application should get 19 times as much time as the collector. By default the value is 99, meaning the application should get at least 99 times as much time as the collector. That is, the collector should run for not more than 1% of the total time. This was selected as a good choice for server applications. A value that is too high will cause the size of the heap to grow to its maximum.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/gc-ergonomics.html)
+```
+-XX:GCTimeRatio=nnn
+```
 ##### Thread-local allocation buffer
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
