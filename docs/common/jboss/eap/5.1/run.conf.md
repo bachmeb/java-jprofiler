@@ -12,6 +12,7 @@
 * https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/
 * http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf
 * http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html
+* https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html
 
 ### Settings
 
@@ -114,6 +115,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
 
 ##### Default size of new generation (in bytes)
 * * [5.0 and newer: 64 bit VMs are scaled 30% larger; x86: 1m; x86, 5.0 and older: 640k]* (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
+* *The NewSize and MaxNewSize parameters control the new generation’s minimum and maximum size. Regulate the new generation size by setting these parameters equal. The bigger the younger generation, the less often minor collections occur. The size of the young generation relative to the old generation is controlled by NewRatio. For example, setting -XX:NewRatio=3 means that the ratio between the old and young generation is 1:3, the combined size of eden and the survivor spaces will be fourth of the heap.* (https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
 ```
