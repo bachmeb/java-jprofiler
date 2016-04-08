@@ -57,9 +57,9 @@ JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
 ##### Thread-local allocation buffer
 * *Thread-local allocation buffer. Used to allocate heap space quickly without synchronization. Compiled code has a "fast path" of a few instructions which tries to bump a high-water mark in the current thread's TLAB, successfully allocating an object if the bumped mark falls before a TLAB-specific limit address.* (http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html)
 
-* *When new objects are allocated on the heap, if TLAB ( Thread Local Allocation Buffers ) are enabled, the object will first be placed in the TLAB, this buffer only exists within eden space. Each thread has its own TLAB to allow faster memory allocation, as the thread is able to allocate additional memory within the buffer without a lock. The TLAB is pre allocated for each thread. As a thread uses memory within the TLAB it moves a pointer accordingly.*
-* *To enable TLAB set ‐XX:+UseTLAB, You can set the size allocated to the the TLAB via ‐XX:TLABSize, its default size is 0, which means use dynamic calculation.*
-* *Using TLAB, uses more of your Eden space, but you may get a slight performance benefit when creating objects. The amount of memory allocated to all your TLAB's will be proportional to the number of threads in your application.*  (http://robsjava.blogspot.com/2013/03/what-are-thread-local-allocation-buffers.html)
+* *When new objects are allocated on the heap, if TLAB ( Thread Local Allocation Buffers ) are enabled, the object will first be placed in the TLAB, this buffer only exists within eden space. Each thread has its own TLAB to allow faster memory allocation, as the thread is able to allocate additional memory within the buffer without a lock. The TLAB is pre allocated for each thread. As a thread uses memory within the TLAB it moves a pointer accordingly.*  
+* *To enable TLAB set ‐XX:+UseTLAB, You can set the size allocated to the the TLAB via ‐XX:TLABSize, its default size is 0, which means use dynamic calculation.*  
+* *Using TLAB, uses more of your Eden space, but you may get a slight performance benefit when creating objects. The amount of memory allocated to all your TLAB's will be proportional to the number of threads in your application.*  (http://robsjava.blogspot.com/2013/03/what-are-thread-local-allocation-buffers.html)  
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 ```
