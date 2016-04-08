@@ -303,7 +303,9 @@ JAVA_OPTS="$JAVA_OPTS -Dsun.lang.ClassLoader.allowArraySyntax=true"
 sudo find / -name gc.log
 ```
 ```c
-// /opt/jboss/gc.log
+/* 
+/opt/jboss/gc.log
+*/
 ```
 
 ### Read the gc.log file
