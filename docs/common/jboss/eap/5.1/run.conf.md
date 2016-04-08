@@ -131,14 +131,12 @@ JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
 JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
 ```
 
-##### Client periodic full collection frequency
+##### Periodic full collection frequency
 * *The Sun ONE Application Server uses RMI in the Administration module for monitoring. Garbage cannot be collected in RMI based distributed applications without occasional local collections, so RMI forces a periodic full collection. The frequency of these collections can be controlled with the property -sun.rmi.dgc.client.gcInterval. For example, - java -Dsun.rmi.dgc.client.gcInterval=3600000 specifies explicit collection once per hour instead of the default rate of once per minute.* ()
 * *By default, the RMI subsystem forces a full garbage collection once per minute. This means that all threads are paused and the entire heap is scanned. This takes a good while, especially under load.* (https://developer.jboss.org/blogs/acoliver/2006/03/21/if-you-dont-do-this-jboss-will-run-really-slowly?_sscc=t)
+* *Apparently when your application either exposes its services via RMI or consumes any services over RMI, you are bound to have an additional garbage collection cycle. As the RMI documentation says: "When it is necessary to ensure that unreachable remote objects are unexported and garbage collected in a timely fashion, the value of this property represents the maximum interval (in milliseconds) that the Java RMI runtime will allow between garbage collections of the local heap. The default value is 3600000 milliseconds (one hour)."* (https://plumbr.eu/blog/garbage-collection/rmi-enforcing-full-gc-to-run-hourly)
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
-```
-
-```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.server.gcInterval=3600000"
 ```
 
