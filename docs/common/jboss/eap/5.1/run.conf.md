@@ -28,7 +28,7 @@ JAVA_OPTS="$JAVA_OPTS -Xms5000m"
 ```
 
 ##### Maximum Java heap size
-* *Specify the maximum size, in bytes, of the memory allocation pool. This value must be a multiple of 1024 greater than 2MB. Append the letter k or K to indicate kilobytes, or m or M to indicate megabytes. The default value is chosen at runtime based on system configuration. * (http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html)
+* *Specify the maximum size, in bytes, of the memory allocation pool. This value must be a multiple of 1024 greater than 2MB. Append the letter k or K to indicate kilobytes, or m or M to indicate megabytes. The default value is chosen at runtime based on system configuration.* (http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/java.html)
 
 * *On server-class machines running either VM (client or server) with the parallel garbage collector (-XX:+UseParallelGC) the initial heap size and maximum heap size have changed as follows. Maximum heap size: Smaller of 1/4th of the physical memory or 1GB. Before J2SE 5.0, the default maximum heap size was 64MB. You can override this default using the -Xmx command-line option.*
 * *Do not choose a maximum value for the heap unless you know that the heap is greater than the default maximum heap size. Choose a throughput goal that is sufficient for your application.*
