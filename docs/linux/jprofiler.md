@@ -52,7 +52,7 @@ cd /opt/jprofiler/jprofiler9/bin
 ```
 # Enable Remote JProfiler Connection
 JAVA_OPTS = "$JAVA_OPTS –Xrunjprofiler:port=8849
-JAVA_OPTS = "$JAVA_OPTS -Xbootclasspath/a:/opt/jprofiler/jprofiler9/bin/agent.jar"
+JAVA_OPTS = "$JAVA_OPTS -Xbootclasspath/a:/opt/jprofiler/jprofiler9/bin/..."
 
 LD_LIBRARY_PATH="/opt/jprofiler/jprofiler9/bin/linux-x86"
 
