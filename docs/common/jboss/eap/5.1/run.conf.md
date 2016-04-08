@@ -108,15 +108,14 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 
 * *The concurrent mark sweep collector, also known as the concurrent collector or CMS, is targeted at applications that are sensitive to garbage collection pauses. It performs most garbage collection activity concurrently, i.e., while the application threads are running, to keep garbage collection-induced pauses short.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/cms-6.html)
 
-* *The concurrent collector (Enabled using -XX:+UseConcMarkSweepGC). This collector tries to allow application processing to continue as much as possible during the collection. Splitting the collection into six phases described shortly, four are concurrent while two are stop-the-world:* (http://www.javaperformancetuning.com/news/qotm026.shtml)
+* *The concurrent collector (Enabled using -XX:+UseConcMarkSweepGC). This collector tries to allow application processing to continue as much as possible during the collection. Splitting the collection into six phases described shortly, four are concurrent while two are stop-the-world:* 
   0. *the initial-mark phase (stop-the-world, snapshot the old generation so that we can run most of the rest of the collection concurrent to the application threads);*
   0. *the mark phase (concurrent, mark the live objects traversing the object graph from the roots);*
   0. *the pre-cleaning phase (concurrent);*
   0. *the re-mark phase (stop-the-world, another snapshot to capture any changes to live objects since the collection started);*
   0. *the sweep phase (concurrent, recycles memory by clearing unreferenced objects);*
   0. *the reset phase (concurrent).*
-
-
+* *If "the rate of creation" of objects is too high, and the concurrent collector is not able to keep up with the concurrent collection, it falls back to the traditional mark-sweep collector.*  (http://www.javaperformancetuning.com/news/qotm026.shtml)
 
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
