@@ -1,5 +1,60 @@
 # gc.log
 
+##### run.conf
+```bash
+### Custom settings
+# Initial Java heap size
+JAVA_OPTS="$JAVA_OPTS -Xms5000m"
+
+# Maximum Java heap size
+JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
+
+# Maximum Java permanent space size
+JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
+
+# Thread-local allocation buffer
+JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
+
+# Use Parallel New Garbage Collection (New generation)
+JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
+
+# Use Concurrent Mark Sweep Garbage Collector (Old generation)
+JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
+
+# Disable garbage collection of classes
+JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
+
+# Ratio between the two survivor spaces and eden
+JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
+
+# Default size of new generation (in bytes)
+JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
+
+# Maximum size of new generation (in bytes)
+JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
+
+# JBoss Resolver Warning
+JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
+
+# Periodic full collection frequency required by RMI
+JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
+JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.server.gcInterval=3600000"
+
+# Workaround to allow Array Syntax
+JAVA_OPTS="$JAVA_OPTS -Dsun.lang.ClassLoader.allowArraySyntax=true"
+
+# Verbose Garbage Collection
+JAVA_OPTS="$JAVA_OPTS -verbose:gc"
+
+# Verbose Garbage Collection Log File
+JAVA_OPTS="$JAVA_OPTS -Xloggc:gc.log"
+
+# Print Garbage Collection Details
+JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCDetails"
+
+# Print Garbage Collection Time Stamps
+JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCTimeStamps"
+```
 ##### Friday to Monday
 ```
 9.699: [Full GC (System) 9.699: [CMS: 0K->45093K(3022848K), 0.5122730 secs] 604048K->45093K(4910336K), [CMS Perm : 25035K->25020K(25088K)], 0.5124600 secs] [Times: user=0.43 sys=0.06, real=0.52 secs]
