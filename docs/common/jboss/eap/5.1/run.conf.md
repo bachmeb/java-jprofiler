@@ -17,6 +17,7 @@
 * http://scn.sap.com/people/desiree.matas/blog/2011/07/19/how-to-read-the-garbage-collector-output-for-sun-jvm
 * https://www.doag.org/formes/pubfiles/7497939/docs/Konferenz/2015/vortraege/Middleware/2015-K-MW-Daniel_Joray-Haben_Sie_Ihre_Weblogic-Umgebung_im_Griff_-Manuskript.pdf
 * https://engineering.linkedin.com/garbage-collection/garbage-collection-optimization-high-throughput-and-low-latency-java-applications
+* http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.63.6386&rep=rep1&type=pdf
 
 ### Settings
 
