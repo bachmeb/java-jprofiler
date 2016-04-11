@@ -6,6 +6,8 @@
 * https://www.ej-technologies.com/download/jprofiler/files
 * https://docs.oracle.com/cd/E15289_01/doc.40/e15062/optionx.htm
 * http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html
+* https://community.oracle.com/thread/1177566?db=5
+* https://developer.jboss.org/thread/206532?db=5
 
 ##### Get a link to download JProfiler TAR.GZ Archive (69 MB) for Linux
 * https://www.ej-technologies.com/download/jprofiler/files
