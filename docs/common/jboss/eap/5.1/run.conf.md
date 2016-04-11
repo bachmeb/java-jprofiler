@@ -92,6 +92,8 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 
 ##### Use Parallel Garbage Collection (New generation)
 * *The parallel scavenge collector. This is like the parallel copying collector, but the algorithm is tuned for gigabyte heaps (over 10GB) on multi-CPU machines. This collection algorithm is designed to maximize throughput while minimizing pauses. It has an optional adaptive tuning policy which will automatically resize heap spaces. If you use this collector, you can only use the the original mark-sweep collector in the old generation (i.e. the newer old generation concurrent collector cannot work with this young generation collector).* (http://www.javaperformancetuning.com/news/qotm026.shtml)
+
+* *Old generation garbage collection for the parallel collector is done using the same serial mark-sweep-compact collection algorithm as the serial collector.* (http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf)
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelGC"
 ```
