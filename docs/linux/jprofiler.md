@@ -9,6 +9,9 @@
 * https://community.oracle.com/thread/1177566?db=5
 * https://developer.jboss.org/thread/206532?db=5
 * http://stackoverflow.com/questions/30772662/error-while-running-jprofile8
+* http://stackoverflow.com/questions/26607482/jbosss-fails-to-start-with-jdk1-7
+
+### Install
 
 ##### Get a link to download JProfiler TAR.GZ Archive (69 MB) for Linux
 * https://www.ej-technologies.com/download/jprofiler/files
@@ -43,21 +46,26 @@ tar -xvf ~/Downloads/jprofiler_linux_9_1_1.tar.gz
 ls -l jprofiler9/
 ```
 
+### Client
 ##### Start jprofiler
 ```
 cd /opt/jprofiler/jprofiler9/bin
 ./jprofiler
 ```
 
-## Configure JBoss to accept remote JProfiler connection
+### Remote Connection
+#### JBoss
+##### Confirm the Linux and JVM version (x64, x86, ARM?)
+```
+cat /proc/cpuinfo
+java --version
+```
+
 ##### Edit JBOSS_HOME/bin/run.conf
 *This value (/opt/jprofiler/jprofiler9/bin/...) should point to the JProfiler installation on the Linux machine.*
 ```
 # Enable Remote JProfiler Connection
-JAVA_OPTS="$JAVA_OPTS –Xrunjprofiler:port=8849
-JAVA_OPTS="$JAVA_OPTS -Xbootclasspath/a:/opt/jprofiler/jprofiler9/bin/agent.jar"
+JAVA_OPTS="$JAVA_OPTS -agentpath:/opt/jprofiler/jprofiler9/bin/linux-x64/libjprofilerti.so"
 
-LD_LIBRARY_PATH="/opt/jprofiler/jprofiler9/bin/linux-x86"
 
-export LD_LIBRARY_PATH
 ```
