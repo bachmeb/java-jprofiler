@@ -51,8 +51,8 @@ cd /opt/jprofiler/jprofiler9/bin
 *This value (/opt/jprofiler/jprofiler9/bin/...) should point to the JProfiler installation on the Linux machine.*
 ```
 # Enable Remote JProfiler Connection
-JAVA_OPTS = "$JAVA_OPTS –Xrunjprofiler:port=8849
-JAVA_OPTS = "$JAVA_OPTS -Xbootclasspath/a:/opt/jprofiler/jprofiler9/bin/agent.jar"
+JAVA_OPTS="$JAVA_OPTS –Xrunjprofiler:port=8849
+JAVA_OPTS="$JAVA_OPTS -Xbootclasspath/a:/opt/jprofiler/jprofiler9/bin/agent.jar"
 
 LD_LIBRARY_PATH="/opt/jprofiler/jprofiler9/bin/linux-x86"
 
