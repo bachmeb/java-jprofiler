@@ -66,6 +66,11 @@ java --version
 ```
 # Enable Remote JProfiler Connection
 JAVA_OPTS="$JAVA_OPTS -agentpath:/opt/jprofiler/jprofiler9/bin/linux-x64/libjprofilerti.so"
-
-
 ```
+
+##### Start JBoss
+```
+$JBOSS_HOME/bin/run.sh
+```
+
+##### Run the JProfiler client from a remote machine and provide the hostname of the Linux machine to connect
