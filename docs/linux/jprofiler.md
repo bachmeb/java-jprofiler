@@ -62,6 +62,11 @@ java --version
 ```
 
 ##### Edit JBOSS_HOME/bin/run.conf
+```
+sudo nano $JBOSS_HOME/bin/run.conf
+```
+
+##### Add the agent path
 *This value (/opt/jprofiler/jprofiler9/bin/...) should point to the JProfiler installation on the Linux machine.*
 ```
 # Enable Remote JProfiler Connection
