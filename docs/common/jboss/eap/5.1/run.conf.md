@@ -16,6 +16,7 @@
 * https://developer.jboss.org/blogs/acoliver/2006/03/21/if-you-dont-do-this-jboss-will-run-really-slowly?_sscc=t
 * http://scn.sap.com/people/desiree.matas/blog/2011/07/19/how-to-read-the-garbage-collector-output-for-sun-jvm
 * https://www.doag.org/formes/pubfiles/7497939/docs/Konferenz/2015/vortraege/Middleware/2015-K-MW-Daniel_Joray-Haben_Sie_Ihre_Weblogic-Umgebung_im_Griff_-Manuskript.pdf
+* https://engineering.linkedin.com/garbage-collection/garbage-collection-optimization-high-throughput-and-low-latency-java-applications
 
 ### Settings
 
@@ -84,13 +85,13 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
 (Enabled by default)
 ```
 
-##### Use the Parallel Garbage Collector
+##### 
 * *The parallel copying collector. Like the original copying collector, this is a stop-the-world collector. However this collector parallelizes the copying collection over multiple threads, which is more efficient than the original single-thread copying collector for multi-CPU machines (though not for single-CPU machines). This algorithm potentially speeds up young generation collection by a factor equal to the number of CPUs available, when compared to the original singly-threaded copying collector.* (http://www.javaperformancetuning.com/news/qotm026.shtml)*
 ```
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 ```
 
-##### Use the Parallel Compacting Garbage Collector
+##### Use the Parallel Garbage Collector
 * *This is like the parallel copying collector, but the algorithm is tuned for gigabyte heaps (over 10GB) on multi-CPU machines. This collection algorithm is designed to maximize throughput while minimizing pauses. It has an optional adaptive tuning policy which will automatically resize heap spaces. If you use this collector, you can only use the the original mark-sweep collector in the old generation (i.e. the newer old generation concurrent collector cannot work with this young generation collector).* (http://www.javaperformancetuning.com/news/qotm026.shtml)
 
 * *Old generation garbage collection for the parallel collector is done using the same serial mark-sweep-compact collection algorithm as the serial collector.* (http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf)
@@ -98,7 +99,9 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
 JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelGC"
 ```
 
-##### Use Parallel Old Garbage Collection (Old generation)
+##### Use the Parallel Compacting Garbage Collector
+* *The parallel compacting collector was introduced in J2SE 5.0 update 6. The difference between it and the parallel collector is that it uses a new algorithm for old generation garbage collection. Note: Eventually, the parallel compacting collector will replace the parallel collector.* (http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf)
+
 * *Parallel compaction complements the existing parallel collector by performing full GCs in parallel to take advantage of multiprocessor (or multi-threaded) hardware.*
 * *As the name suggests, it is best suited to platforms that have two or more CPUs or two or more hardware threads.*
 * *It was first made available in JDK 5.0 update 6; the implementation in JDK 6 contains significant performance improvements.*
