@@ -103,6 +103,17 @@ HugePages_Rsvd:      0
 Hugepagesize:     2048 kB
 */
 ```
+
+##### JBOSS_HOME
+```
+echo $JBOSS_HOME
+```
+```c
+/*
+/opt/jboss/tune/jboss-as
+*/
+```
+
 ##### run.conf
 ```bash
 ## -*- shell-script -*- ######################################################
@@ -168,6 +179,7 @@ JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
 
 ### NEW ###
 # Default size of new generation
+# 5000m heap - 2048m new = 2952m old
 JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
 
 # Maximum size of new generation
