@@ -6,6 +6,7 @@
 ### Linux
 * [JMap](/docs/linux/jmap.md)
 * [JProfiler](/docs/linux/jprofiler.md)
+* [jvmstat](/docs/linux/jvmstat.md)
 * [OProfile](/docs/linux/oprofile.md)
 
 ### Windows
