@@ -1,4 +1,108 @@
 
+##### version
+```
+cat /proc/version
+```
+```c
+/*
+Linux version 2.6.18-409.el5 (mockbuild@x86-031.build.eng.bos.redhat.com) (gcc version 4.1.2 20080704 (Red Hat 4.1.2-55)) #1 SMP Fri Feb 12 06:37:28 EST 2016
+*/
+```
+
+##### cpuinfo
+```
+cat /proc/cpuinfo
+```
+```c
+/*
+processor       : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 15
+model name      : Intel(R) Core(TM)2 Duo CPU     E4500  @ 2.20GHz
+stepping        : 13
+cpu MHz         : 1200.000
+cache size      : 2048 KB
+physical id     : 0
+siblings        : 2
+core id         : 0
+cpu cores       : 2
+apicid          : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 10
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm syscall nx lm constant_tsc pni monitor ds_cpl est tm2 ssse3 cx16 xtpr lahf_lm
+bogomips        : 4388.97
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 36 bits physical, 48 bits virtual
+power management:
+
+processor       : 1
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 15
+model name      : Intel(R) Core(TM)2 Duo CPU     E4500  @ 2.20GHz
+stepping        : 13
+cpu MHz         : 1200.000
+cache size      : 2048 KB
+physical id     : 0
+siblings        : 2
+core id         : 1
+cpu cores       : 2
+apicid          : 1
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 10
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm syscall nx lm constant_tsc pni monitor ds_cpl est tm2 ssse3 cx16 xtpr lahf_lm
+bogomips        : 4389.00
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 36 bits physical, 48 bits virtual
+power management:
+*/
+```
+
+##### meminfo
+```
+cat /proc/meminfo
+```
+```c
+/*
+MemTotal:      8033836 kB
+MemFree:       6848920 kB
+Buffers:        209276 kB
+Cached:         762584 kB
+SwapCached:          0 kB
+Active:         731472 kB
+Inactive:       333492 kB
+HighTotal:           0 kB
+HighFree:            0 kB
+LowTotal:      8033836 kB
+LowFree:       6848920 kB
+SwapTotal:     7815580 kB
+SwapFree:      7815580 kB
+Dirty:               0 kB
+Writeback:           0 kB
+AnonPages:       93060 kB
+Mapped:          14128 kB
+Slab:            86924 kB
+PageTables:       5640 kB
+NFS_Unstable:        0 kB
+Bounce:              0 kB
+CommitLimit:  11832496 kB
+Committed_AS:   207872 kB
+VmallocTotal: 34359738367 kB
+VmallocUsed:    268816 kB
+VmallocChunk: 34359468923 kB
+HugePages_Total:     0
+HugePages_Free:      0
+HugePages_Rsvd:      0
+Hugepagesize:     2048 kB
+*/
+```
 ##### run.conf
 ```bash
 ## -*- shell-script -*- ######################################################
