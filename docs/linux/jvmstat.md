@@ -15,6 +15,61 @@
   * Experimental: Visual Garbage Collection Monitoring Tool - a graphical tool for monitoring the HotSpot Garbage Collector, Compiler, and class loader. It can monitor both local and remote JVMs.
 * *Source: http://www.oracle.com/technetwork/java/jvmstat-142257.html*
 
+
+
+### jps
+##### See where is jps
+```
+whereis jps
+```
+```c
+/*
+jps: /usr/bin/jps /usr/share/man/man1/jps.1.gz
+*/
+```
+
+##### Get a list of lvmids
+```
+jps
+```
+```c
+/*
+4345 Main
+14519 Jps
+*/
+```
+### jstat
+##### See where is jstat
+```
+whereis jstat
+```
+```c
+/*
+jstat: /usr/bin/jstat /usr/share/man/man1/jstat.1.gz
+*/
+```
+##### Get a list of jstat options
+```
+jstat -options
+```
+```c
+/*
+-class
+-compiler
+-gc
+-gccapacity
+-gccause
+-gcnew
+-gcnewcapacity
+-gcold
+-gcoldcapacity
+-gcpermcapacity
+-gcutil
+-printcompilation
+*/
+```
+
+### Download
 ##### Get a link to download the jvmstat 3.0 Maintenance Release
 * http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-jvm-419420.html#jvmstat-3_0-mr-oth-JPR
 
@@ -69,62 +124,5 @@ Archive:  jvmstat-3_0.zip?AuthParam=SomeRandomCode
   inflating: jvmstat/docs/tooldocs/tools.html
   inflating: jvmstat/README
   inflating: jvmstat/LICENSE
-*/
-```
-
-##### Move jvmstat/ to the /opt directory
-```
-sudo mv jvmstat /opt
-```
-
-### jps
-##### See where is jps
-```
-whereis jps
-```
-```c
-/*
-jps: /usr/bin/jps /usr/share/man/man1/jps.1.gz
-*/
-```
-
-##### Get a list of lvmids
-```
-jps
-```
-```c
-/*
-4345 Main
-14519 Jps
-*/
-```
-### jstat
-##### See where is jstat
-```
-whereis jstat
-```
-```c
-/*
-jstat: /usr/bin/jstat /usr/share/man/man1/jstat.1.gz
-*/
-```
-##### Get a list of jstat options
-```
-jstat -options
-```
-```c
-/*
--class
--compiler
--gc
--gccapacity
--gccause
--gcnew
--gcnewcapacity
--gcold
--gcoldcapacity
--gcpermcapacity
--gcutil
--printcompilation
 */
 ```
