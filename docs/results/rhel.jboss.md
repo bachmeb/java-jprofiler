@@ -1,6 +1,6 @@
 
 ##### run.conf
-```
+```bash
 ## -*- shell-script -*- ######################################################
 ##                                                                          ##
 ##  JBoss Bootstrap Script Configuration                                    ##
@@ -130,6 +130,8 @@ jps
 jstat -gccapacity 15888
 ```
 ```c
+/*
  NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC      PGCMN    PGCMX     PGC       PC     YGC    FGC
 2097152.0 2097152.0 2097152.0 209664.0 209664.0 1677824.0  3022848.0  3022848.0  3022848.0  3022848.0  21248.0 524288.0  61920.0  61920.0      0     1
+*/
 ```
