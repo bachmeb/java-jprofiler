@@ -362,7 +362,7 @@ jstat -gccapacity 16154
 ```
 ```c
 /*
- NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC      PGCMN    PGCMX     PGC       PC     YGC    FGC
+ NGCMN    NGCMX     NGC     S0C       S1C       EC         OGCMN      OGCMX       OGC         OC      PGCMN    PGCMX     PGC       PC     YGC    FGC
 2097152.0 2097152.0 2097152.0 209664.0 209664.0 1677824.0  3022848.0  3022848.0  3022848.0  3022848.0  21248.0 524288.0  61856.0  61856.0      0     1
 */
 ```
