@@ -14,3 +14,61 @@
 * visualgc
   * Experimental: Visual Garbage Collection Monitoring Tool - a graphical tool for monitoring the HotSpot Garbage Collector, Compiler, and class loader. It can monitor both local and remote JVMs.
 * *Source: http://www.oracle.com/technetwork/java/jvmstat-142257.html*
+
+##### Get a link to download the jvmstat 3.0 Maintenance Release
+* http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-jvm-419420.html#jvmstat-3_0-mr-oth-JPR
+
+##### Download jvmstat 3.0 Maintenance Release
+```
+cd ~/Downloads
+wget http://download.oracle.com/otn-pub/java/jvmstat/3.0-mr/jvmstat-3_0.zip?AuthParam=SomeRandomCode
+```
+
+##### Unzip the package
+```
+unzip jvmstat-3_0.zip\?AuthParam\=SomeRandomCode
+```
+```c
+/*
+Archive:  jvmstat-3_0.zip?AuthParam=SomeRandomCode
+   creating: jvmstat/
+   creating: jvmstat/jars/
+  inflating: jvmstat/jars/jvmstat_util.jar
+  inflating: jvmstat/jars/jvmstat_graph.jar
+  inflating: jvmstat/jars/visualgc.jar
+   creating: jvmstat/bin/
+  inflating: jvmstat/bin/visualgc
+   creating: jvmstat/bat/
+  inflating: jvmstat/bat/visualgc.cmd
+   creating: jvmstat/etc/
+  inflating: jvmstat/etc/linux.magic
+  inflating: jvmstat/etc/solaris.magic
+   creating: jvmstat/docs/
+   creating: jvmstat/docs/images/
+ extracting: jvmstat/docs/images/sunlogo64x30.gif
+  inflating: jvmstat/docs/images/visualheap.jpg
+  inflating: jvmstat/docs/images/visualgraph.jpg
+ extracting: jvmstat/docs/images/javalogo52x88.gif
+  inflating: jvmstat/docs/images/bullet-round.gif
+  inflating: jvmstat/docs/index.html
+   creating: jvmstat/docs/install/
+  inflating: jvmstat/docs/install/solaris.html
+  inflating: jvmstat/docs/install/windows.html
+   creating: jvmstat/docs/instrumentation/
+   creating: jvmstat/docs/instrumentation/1.4.1/
+   creating: jvmstat/docs/instrumentation/1.4.2/
+  inflating: jvmstat/docs/instrumentation/1.4.2/index.html
+   creating: jvmstat/docs/instrumentation/5.0/
+   creating: jvmstat/docs/tooldocs/
+   creating: jvmstat/docs/tooldocs/solaris/
+   creating: jvmstat/docs/tooldocs/linux/
+   creating: jvmstat/docs/tooldocs/windows/
+   creating: jvmstat/docs/tooldocs/share/
+  inflating: jvmstat/docs/tooldocs/share/visualgc.html
+  inflating: jvmstat/docs/tooldocs/share/notes.html
+  inflating: jvmstat/docs/tooldocs/tools.html
+  inflating: jvmstat/README
+  inflating: jvmstat/LICENSE
+*/
+```
+
