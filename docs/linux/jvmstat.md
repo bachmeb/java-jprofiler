@@ -97,6 +97,25 @@ Definitions:
   -J<flag>      Pass <flag> directly to the runtime system.
 */
 ```
+```c
+/*
+S0C	    Current survivor space 0 capacity (KB).
+S1C	    Current survivor space 1 capacity (KB).
+S0U	    Survivor space 0 utilization (KB).
+S1U	    Survivor space 1 utilization (KB).
+EC	    Current eden space capacity (KB).
+EU	    Eden space utilization (KB).
+OC	    Current old space capacity (KB).
+OU	    Old space utilization (KB).
+PC	    Current permanent space capacity (KB).
+PU	    Permanent space utilization (KB).
+YGC	    Number of young generation GC Events.
+YGCT	Young generation garbage collection time.
+FGC	    Number of full GC events.
+FGCT	Full garbage collection time.
+GCT	    Total garbage collection time.
+*/
+```
 
 ##### Show the old generation capacity (OGC) and the old space capacity (OC) increasing as the heap expands to meet allocation and/or promotion demands. 
 ```
