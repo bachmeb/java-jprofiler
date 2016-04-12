@@ -157,6 +157,21 @@ FGC	    Number of Full GC Events.
 */
 ```
 
+##### Display the same summary of garbage collection statistics as the -gcutil option and also include the causes of the last garbage collection event and (if applicable) the current garbage collection event
+```
+jstat -gccause 14958
+```
+/*
+  S0    S1      E     O      P      YGC  YGCT      FGC  FGCT     GCT    LGCC                 GCC
+  0.00  50.32   7.76  12.88  99.84  7    0.982     1    0.327    1.309  Allocation Failure   No GC
+*/
+```c
+/*
+LGCC    Cause of last Garbage Collection.
+GCC     Cause of current Garbage Collection.
+*/
+```
+
 ##### Show the old generation capacity (OGC) and the old space capacity (OC) increasing as the heap expands to meet allocation and/or promotion demands. 
 ```
 jstat -gcoldcapacity 14958
