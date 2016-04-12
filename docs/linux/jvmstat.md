@@ -163,14 +163,20 @@ jstat -gcutil 14958
 ```
 ```c
 /*
-S0    S1     E      O      P      YGC  YGCT    FGC  FGCT     GCT
-0.00  50.32  19.63  12.88  99.84  7    0.982   1    0.327    1.309
+S0    S1     E      O      P       YGC   YGCT    FGC  FGCT     GCT
+0.00  50.32  19.63  12.88  99.84   7     0.982   1    0.327    1.309
 */
 ```
 ```c
 /*
- S0     S1    E      O      P         YGC   YGCT      FGC  FGCT     GCT
- 0.22   0.00  82.96  15.00  60.58     10    1.237     2    1.927    3.164
+ S0     S1    E      O      P      YGC   YGCT    FGC  FGCT     GCT
+ 0.22   0.00  82.96  15.00  60.58  10    1.237   2    1.927    3.164
+*/
+```
+```c
+/*
+ S0     S1     E     O      P      YGC   YGCT    FGC  FGCT     GCT
+ 0.00   100.00 3.66  15.00  60.58  11    1.246   2    1.927    3.173
 */
 ```
 ```c
@@ -204,6 +210,20 @@ jstat -gcutil 14958 250 7
   0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
 */
 ```
+
+##### Run jstat 30 times once a minute with the -gcutil output and a timestamp 
+```
+jstat -gcutil -t 14958 60000 15
+```
+```c
+/*
+
+Timestamp         S0     S1     E      O      P     YGC     YGCT    FGC    FGCT     GCT
+         6953.8   0.00 100.00  26.82  15.00  60.58     11    1.246     2    1.927    3.173
+         7013.8   0.00 100.00  30.40  15.00  60.58     11    1.246     2    1.927    3.173
+*/
+```
+
 
 ##### Display the same summary of garbage collection statistics as the -gcutil option and also include the causes of the last garbage collection event and (if applicable) the current garbage collection event
 ```
