@@ -122,7 +122,9 @@ JAVA_OPTS="$JAVA_OPTS -XX:+UseParallelOldGC"
 JAVA_OPTS="$JAVA_OPTS -XX:+UseLargePages"
 ```
 
-##### Use Concurrent Mark Sweep Garbage Collector (Old generation)
+##### Use Concurrent Mark Sweep Garbage Collector
+* *Other GC algorithms, such as the Concurrent Mark Sweep (CMS) algorithm, are incremental. They divide the full GC into several incremental pieces. This provides a high probability of small pauses. This process comes with an overhead and is not required for enterprise web applications.* (https://docs.oracle.com/cd/E18930_01/html/821-2431/abeic.html)
+
 * *This flag is needed to activate the CMS Collector in the first place. By default, HotSpot uses the Throughput Collector instead.* (https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/)
 
 * *The concurrent mark sweep collector, also known as the concurrent collector or CMS, is targeted at applications that are sensitive to garbage collection pauses. It performs most garbage collection activity concurrently, i.e., while the application threads are running, to keep garbage collection-induced pauses short.* (http://docs.oracle.com/javase/6/docs/technotes/guides/vm/cms-6.html)
