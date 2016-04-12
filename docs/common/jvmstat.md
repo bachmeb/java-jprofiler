@@ -280,6 +280,29 @@ YGCT	Young generation garbage collection time.
 */
 ```
 
+##### Old and Permanent Generation Statistics
+```
+jstat -gcold 12345
+```
+```c
+/*
+   PC       PU        OC          OU       YGC    FGC    FGCT     GCT
+ 61856.0  61715.2   3022848.0     44974.3      0     1    0.490    0.490
+*/
+```
+```c
+/*
+PC      Current permanent space capacity (KB).
+PU	    Permanent space utilization (KB).
+OC	    Current old space capacity (KB).
+OU	    old space utilization (KB).
+YGC	    Number of young generation GC events.
+FGC	    Number of full GC events.
+FGCT	Full garbage collection time.
+GCT	    Total garbage collection time.
+*/
+```
+
 ##### Show the old generation capacity (OGC) and the old space capacity (OC) increasing as the heap expands to meet allocation and/or promotion demands. 
 ```
 jstat -gcoldcapacity 14958
