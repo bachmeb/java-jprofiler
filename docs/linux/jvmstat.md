@@ -161,10 +161,12 @@ FGC	    Number of Full GC Events.
 ```
 jstat -gccause 14958
 ```
+```c
 /*
   S0    S1      E     O      P      YGC  YGCT      FGC  FGCT     GCT    LGCC                 GCC
   0.00  50.32   7.76  12.88  99.84  7    0.982     1    0.327    1.309  Allocation Failure   No GC
 */
+```
 ```c
 /*
 LGCC    Cause of last Garbage Collection.
