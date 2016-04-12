@@ -98,6 +98,18 @@ Definitions:
 */
 ```
 
+##### 
+```
+jstat -gcoldcapacity 14958
+```
+```c
+/*
+   OGCMN       OGCMX        OGC         OC       YGC   FGC    FGCT     GCT
+   889536.0    890240.0    889536.0    889536.0     6     1    0.327    1.180
+*/
+```
+
+
 ### Download
 ##### Get a link to download the jvmstat 3.0 Maintenance Release
 * http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-jvm-419420.html#jvmstat-3_0-mr-oth-JPR
