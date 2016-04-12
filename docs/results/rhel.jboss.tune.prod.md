@@ -443,6 +443,21 @@ jstat -gcnew
 209664.0 209664.0    0.0    0.0 15  15    0.0 1677824.0 1610865.0      0    0.000
 */
 ```
+```c
+/*
+S0C	    Current survivor space 0 capacity (KB).
+S1C	    Current survivor space 1 capacity (KB).
+S0U	    Survivor space 0 utilization (KB).
+S1U	    Survivor space 1 utilization (KB).
+TT	    Tenuring threshold.
+MTT	    Maximum tenuring threshold.
+DSS	    Desired survivor size (KB).
+EC	    Current eden space capacity (KB).
+EU	    Eden space utilization (KB).
+YGC	    Number of young generation GC events.
+YGCT	Young generation garbage collection time.
+*/
+```
 
 ```
 jstat -gcold
@@ -453,6 +468,18 @@ jstat -gcold
  61856.0  61715.2   3022848.0     44974.3      0     1    0.490    0.490
 */
 ```
+```c
+/*
+PC      Current permanent space capacity (KB).
+PU	    Permanent space utilization (KB).
+OC	    Current old space capacity (KB).
+OU	    old space utilization (KB).
+YGC	    Number of young generation GC events.
+FGC	    Number of full GC events.
+FGCT	Full garbage collection time.
+GCT	    Total garbage collection time.
+*/
+```
 
 ```
 jstat -gcutil 16154
@@ -461,6 +488,20 @@ jstat -gcutil 16154
 /*
   S0     S1     E      O      P     YGC     YGCT    FGC    FGCT     GCT
   0.00   0.00  12.16   5.86  60.02      1    0.420     2    1.461    1.881
+*/
+```
+```c
+/*
+S0      Survivor space 0 utilization as a percentage of the space's current capacity.
+S1	    Survivor space 1 utilization as a percentage of the space's current capacity.
+E	    Eden space utilization as a percentage of the space's current capacity.
+O	    Old space utilization as a percentage of the space's current capacity.
+P	    Permanent space utilization as a percentage of the space's current capacity.
+YGC	    Number of young generation GC events.
+YGCT	Young generation garbage collection time.
+FGC	    Number of full GC events.
+FGCT    Full garbage collection time.
+GCT	    Total garbage collection time.
 */
 ```
 
