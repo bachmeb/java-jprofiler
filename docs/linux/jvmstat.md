@@ -127,22 +127,18 @@ jstat -gcoldcapacity 14958
    889536.0    890240.0    889536.0    889536.0     6     1    0.327    1.180
 */
 ```
-* OGCMN	
-  * Minimum old generation capacity (KB).
-* OGCMX	
-  * Maximum old generation capacity (KB).
-* OGC	
-  * Current old generation capacity (KB).
-* OC	
-  * Current old space capacity (KB).
-* YGC	
-  * Number of young generation GC events.
-* FGC	
-  * Number of full GC events.
-* FGCT	
-  * Full garbage collection time.
-* GCT	
-  * Total garbage collection time.
+```c
+/*
+OGCMN	Minimum old generation capacity (KB).
+OGCMX   Maximum old generation capacity (KB).
+OGC	    Current old generation capacity (KB).
+OC	    Current old space capacity (KB).
+YGC     Number of young generation GC events.
+FGC	    Number of full GC events.
+FGCT    Full garbage collection time.
+GCT	    Total garbage collection time.
+*/
+```
 
 ### Download
 ##### Get a link to download the jvmstat 3.0 Maintenance Release
