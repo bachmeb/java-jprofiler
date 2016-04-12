@@ -212,6 +212,30 @@ GCC     Cause of current Garbage Collection.
 */
 ```
 
+##### New Generation Statistics
+```
+jstat -gcnew 14958
+```
+```c
+S0C      S1C       S0U      S1U  TT MTT  DSS      EC       EU        YGC   YGCT
+100864.0 104448.0  224.0    0.0  2  15   104448.0 236160.0 156715.0  10    1.237
+```
+```c
+/*
+S0C	    Current survivor space 0 capacity (KB).
+S1C	    Current survivor space 1 capacity (KB).
+S0U	    Survivor space 0 utilization (KB).
+S1U	    Survivor space 1 utilization (KB).
+TT	    Tenuring threshold.
+MTT	    Maximum tenuring threshold.
+DSS	    Desired survivor size (KB).
+EC	    Current eden space capacity (KB).
+EU	    Eden space utilization (KB).
+YGC	    Number of young generation GC events.
+YGCT	Young generation garbage collection time.
+*/
+```
+
 ##### Show the old generation capacity (OGC) and the old space capacity (OC) increasing as the heap expands to meet allocation and/or promotion demands. 
 ```
 jstat -gcoldcapacity 14958
