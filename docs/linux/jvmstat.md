@@ -15,8 +15,6 @@
   * Experimental: Visual Garbage Collection Monitoring Tool - a graphical tool for monitoring the HotSpot Garbage Collector, Compiler, and class loader. It can monitor both local and remote JVMs.
 * *Source: http://www.oracle.com/technetwork/java/jvmstat-142257.html*
 
-
-
 ### jps
 ##### See where is jps
 ```
@@ -133,8 +131,10 @@ GCT	    Total garbage collection time.
 jstat -gccapacity 14958
 ```
 ```c
+/*
  NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC      PGCMN    PGCMX     PGC       PC     YGC    FGC
 444736.0 445056.0 445056.0 55552.0 110464.0 224128.0   889536.0   890240.0   889536.0   889536.0  21248.0 262144.0  61824.0  61824.0      6     1
+*/
 ```
 ```c
 /*
