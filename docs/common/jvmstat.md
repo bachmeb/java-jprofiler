@@ -326,6 +326,31 @@ GCT	    Total garbage collection time.
 */
 ```
 
+##### Show the new generation capacity  
+```
+jstat -gcnewcapacity 14958
+```
+```c
+/*
+
+*/
+```
+```c
+/*
+NGCMN   Minimum new generation capacity (KB).
+NGCMX   Maximum new generation capacity (KB).
+NGC     Current new generation capacity (KB).
+S0CMX   Maximum survivor space 0 capacity (KB).
+S0C	    Current survivor space 0 capacity (KB).
+S1CMX   Maximum survivor space 1 capacity (KB).
+S1C	    Current survivor space 1 capacity (KB).
+ECMX    Maximum eden space capacity (KB).
+EC	    Current eden space capacity (KB).
+YGC	    Number of young generation GC events.
+FGC	    Number of Full GC Events.
+*/
+```
+
 ### Download
 ##### Get a link to download the jvmstat 3.0 Maintenance Release
 * http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-jvm-419420.html#jvmstat-3_0-mr-oth-JPR
