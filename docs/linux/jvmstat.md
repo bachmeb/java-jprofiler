@@ -2,7 +2,7 @@
 
 ## References
 * http://www.oracle.com/technetwork/java/jvmstat-142257.html
-
+* http://docs.oracle.com/javase/6/docs/technotes/tools/share/jstat.html
 
 ##### Tool Name
 * jps	
@@ -72,3 +72,59 @@ Archive:  jvmstat-3_0.zip?AuthParam=SomeRandomCode
 */
 ```
 
+##### Move jvmstat/ to the /opt directory
+```
+sudo mv jvmstat /opt
+```
+
+### jps
+##### See where is jps
+```
+whereis jps
+```
+```c
+/*
+jps: /usr/bin/jps /usr/share/man/man1/jps.1.gz
+*/
+```
+
+##### Get a list of lvmids
+```
+jps
+```
+```c
+/*
+4345 Main
+14519 Jps
+*/
+```
+### jstat
+##### See where is jstat
+```
+whereis jstat
+```
+```c
+/*
+jstat: /usr/bin/jstat /usr/share/man/man1/jstat.1.gz
+*/
+```
+##### Get a list of jstat options
+```
+jstat -options
+```
+```c
+/*
+-class
+-compiler
+-gc
+-gccapacity
+-gccause
+-gcnew
+-gcnewcapacity
+-gcold
+-gcoldcapacity
+-gcpermcapacity
+-gcutil
+-printcompilation
+*/
+```
