@@ -128,6 +128,35 @@ GCT	    Total garbage collection time.
 */
 ```
 
+#####	Show statistics of the capacities of the generations and their corresponding spaces.
+```
+jstat -gccapacity 14958
+```
+```c
+ NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC      PGCMN    PGCMX     PGC       PC     YGC    FGC
+444736.0 445056.0 445056.0 55552.0 110464.0 224128.0   889536.0   890240.0   889536.0   889536.0  21248.0 262144.0  61824.0  61824.0      6     1
+```
+```c
+/*
+NGCMN   Minimum new generation capacity (KB).
+NGCMX   Maximum new generation capacity (KB).
+NGC     Current new generation capacity (KB).
+S0C	    Current survivor space 0 capacity (KB).
+S1C	    Current survivor space 1 capacity (KB).
+EC	    Current eden space capacity (KB).
+OGCMN   Minimum old generation capacity (KB).
+OGCMX   Maximum old generation capacity (KB).
+OGC	    Current old generation capacity (KB).
+OC	    Current old space capacity (KB).
+PGCMN	Minimum permanent generation capacity (KB).
+PGCMX	Maximum Permanent generation capacity (KB).
+PGC	    Current Permanent generation capacity (KB).
+PC	    Current Permanent space capacity (KB).
+YGC	    Number of Young generation GC Events.
+FGC	    Number of Full GC Events.
+*/
+```
+
 ##### Show the old generation capacity (OGC) and the old space capacity (OC) increasing as the heap expands to meet allocation and/or promotion demands. 
 ```
 jstat -gcoldcapacity 14958
