@@ -97,6 +97,17 @@ Definitions:
   -J<flag>      Pass <flag> directly to the runtime system.
 */
 ```
+
+##### Show statistics of the behavior of the garbage collected heap
+```
+jstat -gc 14958
+```
+```c
+/*
+S0C     S1C      S0U      S1U   EC       EU        OC         OU        PC      PU           YGC  YGCT    FGC    FGCT     GCT
+55552.0 110464.0 55551.6  0.0   224128.0 131690.4  889536.0   114546.0  61824.0 61709.4      6    0.853   1      0.327    1.180
+*/
+```
 ```c
 /*
 S0C	    Current survivor space 0 capacity (KB).
