@@ -217,8 +217,10 @@ GCC     Cause of current Garbage Collection.
 jstat -gcnew 14958
 ```
 ```c
+/*
 S0C      S1C       S0U      S1U  TT MTT  DSS      EC       EU        YGC   YGCT
 100864.0 104448.0  224.0    0.0  2  15   104448.0 236160.0 156715.0  10    1.237
+*/
 ```
 ```c
 /*
