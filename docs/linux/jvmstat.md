@@ -169,6 +169,12 @@ S0    S1     E      O      P      YGC  YGCT    FGC  FGCT     GCT
 ```
 ```c
 /*
+ S0     S1    E      O      P         YGC   YGCT      FGC  FGCT     GCT
+ 0.22   0.00  82.96  15.00  60.58     10    1.237     2    1.927    3.164
+*/
+```
+```c
+/*
 S0      Survivor space 0 utilization as a percentage of the space's current capacity.
 S1	    Survivor space 1 utilization as a percentage of the space's current capacity.
 E	    Eden space utilization as a percentage of the space's current capacity.
