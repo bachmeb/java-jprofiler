@@ -98,7 +98,7 @@ Definitions:
 */
 ```
 
-##### 
+##### Show the old generation capacity (OGC) and the old space capacity (OC) increasing as the heap expands to meet allocation and/or promotion demands. 
 ```
 jstat -gcoldcapacity 14958
 ```
