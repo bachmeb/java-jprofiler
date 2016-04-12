@@ -157,6 +157,44 @@ FGC	    Number of Full GC Events.
 */
 ```
 
+##### Summary of Garbage Collection Statistics
+```
+jstat -gcutil 14958
+```
+```c
+S0    S1     E      O      P      YGC  YGCT    FGC  FGCT     GCT
+0.00  50.32  19.63  12.88  99.84  7    0.982   1    0.327    1.309
+```
+```c
+S0      Survivor space 0 utilization as a percentage of the space's current capacity.
+S1	    Survivor space 1 utilization as a percentage of the space's current capacity.
+E	    Eden space utilization as a percentage of the space's current capacity.
+O	    Old space utilization as a percentage of the space's current capacity.
+P	    Permanent space utilization as a percentage of the space's current capacity.
+YGC	    Number of young generation GC events.
+YGCT	Young generation garbage collection time.
+FGC	    Number of full GC events.
+FGCT    Full garbage collection time.
+GCT	    Total garbage collection time.
+```
+
+##### Take 7 samples at 250 millisecond intervals and displays the output as specified by the -gcutil option
+```
+jstat -gcutil 14958 250 7
+```
+```c
+/*
+  S0     S1     E      O     P         YGC   YGCT      FGC  FGCT     GCT
+  0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
+  0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
+  0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
+  0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
+  0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
+  0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
+  0.22   0.00   3.52  15.00  60.57     10    1.237     2    1.927    3.164
+*/
+```
+
 ##### Display the same summary of garbage collection statistics as the -gcutil option and also include the causes of the last garbage collection event and (if applicable) the current garbage collection event
 ```
 jstat -gccause 14958
