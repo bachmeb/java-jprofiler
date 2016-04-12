@@ -366,6 +366,73 @@ jstat -gccapacity 16154
 2097152.0 2097152.0 2097152.0 209664.0 209664.0 1677824.0  3022848.0  3022848.0  3022848.0  3022848.0  21248.0 524288.0  61856.0  61856.0      0     1
 */
 ```
+```c
+/*
+NGCMN   Minimum new generation capacity (KB).
+NGCMX   Maximum new generation capacity (KB).
+NGC     Current new generation capacity (KB).
+S0C	    Current survivor space 0 capacity (KB).
+S1C	    Current survivor space 1 capacity (KB).
+EC	    Current eden space capacity (KB).
+OGCMN   Minimum old generation capacity (KB).
+OGCMX   Maximum old generation capacity (KB).
+OGC	    Current old generation capacity (KB).
+OC	    Current old space capacity (KB).
+PGCMN	Minimum permanent generation capacity (KB).
+PGCMX	Maximum Permanent generation capacity (KB).
+PGC	    Current Permanent generation capacity (KB).
+PC	    Current Permanent space capacity (KB).
+YGC	    Number of Young generation GC Events.
+FGC	    Number of Full GC Events.
+*/
+```
+
+```
+jstat -gcnewcapacity
+```
+```
+/*
+  NGCMN      NGCMX       NGC      S0CMX     S0C     S1CMX     S1C       ECMX        EC      YGC   FGC
+ 2097152.0  2097152.0  2097152.0 209664.0 209664.0 209664.0 209664.0  1677824.0  1677824.0     0     1
+*/
+```
+```c
+/*
+NGCMN   Minimum new generation capacity (KB).
+NGCMX   Maximum new generation capacity (KB).
+NGC     Current new generation capacity (KB).
+S0CMX   Maximum survivor space 0 capacity (KB).
+S0C	    Current survivor space 0 capacity (KB).
+S1CMX   Maximum survivor space 1 capacity (KB).
+S1C	    Current survivor space 1 capacity (KB).
+ECMX    Maximum eden space capacity (KB).
+EC	    Current eden space capacity (KB).
+YGC	    Number of young generation GC events.
+FGC	    Number of Full GC Events.
+*/
+```
+
+```
+jstat -gcoldcapacity
+```
+```c
+/*
+   OGCMN       OGCMX        OGC         OC       YGC   FGC    FGCT     GCT
+  3022848.0   3022848.0   3022848.0   3022848.0     0     1    0.490    0.490
+*/
+```
+```c
+/*
+OGCMN	Minimum old generation capacity (KB).
+OGCMX   Maximum old generation capacity (KB).
+OGC	    Current old generation capacity (KB).
+OC	    Current old space capacity (KB).
+YGC     Number of young generation GC events.
+FGC	    Number of full GC events.
+FGCT    Full garbage collection time.
+GCT	    Total garbage collection time.
+*/
+```
 
 ```
 jstat -gcnew
@@ -386,3 +453,4 @@ jstat -gcold
  61856.0  61715.2   3022848.0     44974.3      0     1    0.490    0.490
 */
 ```
+
