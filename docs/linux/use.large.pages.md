@@ -4,13 +4,13 @@
 * http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html
 * http://jose-manuel.me/2012/11/how-to-enable-the-jvm-option-uselargepages-in-redhat/
 
-[Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.](http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
+* *Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 
 ##### Check if your system can support large page memory
 ```
 cat /proc/meminfo | grep Huge 
 ```
-[If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.](http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
+* *If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 ```
 HugePages_Total: 0 
 HugePages_Free: 0 
@@ -18,7 +18,7 @@ Hugepagesize: 2048 kB
 ```
 
 ##### Obtain the size of Huge Pages
-*To calculate the number of Huge Pages you first need to know the Huge Page size. *
+*To calculate the number of Huge Pages you first need to know the Huge Page size.*
 ```
 grep Hugepagesize /proc/meminfo
 ```
