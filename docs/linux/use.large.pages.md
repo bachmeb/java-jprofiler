@@ -17,25 +17,35 @@
 * *SHMALL is the sum of all shared memory segments on the whole system.  But it is measured in number of pages.* 
 * (http://seriousbirder.com/blogs/linux-understanding-shmmax-and-shmall-settings/)
 
+##### View semaphores
+```
+ipcs -s
+```
+```c
+/*
+------ Semaphore Arrays --------
+key        semid      owner      perms      nsems
+*/
+```
+
 ##### See all shared memory settings
 ```
 ipcs -lm
 ```
 ```c
 ------ Shared Memory Limits --------
-max number of segments = 4096
-max seg size (kbytes) = 67108864
-max total shared memory (kbytes) = 17179869184
+max number of segments = 4096                     <-- SHMMNI
+max seg size (kbytes) = 67108864                  <-- SHMMAX
+max total shared memory (kbytes) = 17179869184    <-- SHMALL
 min seg size (bytes) = 1
 ```
-
 
 ##### Setting SHMMAX
 * *Note if you set SHMMAX to 4294967296 bytes (4294967296=4x1024x1024x1024=4GB) on a 32 bit system, then SHMMAX will essentially bet set to 0 bytes since it wraps around the 4GB value.*
 * *This means that SHMMAX should not exceed 4294967295 on a 32 bit system.*
 * *On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
 
-##### Determine the maximum size of a shared memory segment
+##### Read the SHMMAX setting (the maximum size of a shared memory segment)
 ```
 cat /proc/sys/kernel/shmmax
 ```
@@ -46,7 +56,7 @@ cat /proc/sys/kernel/shmmax
 ```
 
 ##### Increase SHMMAX value. It must be larger than the Java heap size. 
-*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable:*
+*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4294967295 = (4x1024x1024x1024)-1))*
 ```
 sudo echo 4294967295 > /proc/sys/kernel/shmmax 
 ```
