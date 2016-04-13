@@ -145,12 +145,6 @@ exit
 sysctl -w vm.nr_hugepages=512
 ```
 
-##### To make the change permanent, add the following line to the file /etc/sysctl.conf. 
-```
-echo "vm.nr_hugepages=512" >> /etc/sysctl.conf
-```
-* *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
-
 ##### Verify whether the kernel was able to allocate the requested number of Huge Pages
 ```
 grep HugePages_Total /proc/meminfo
@@ -159,6 +153,15 @@ grep HugePages_Total /proc/meminfo
 HugePages_Total:  1137
 ```
 * *If HugePages_Total is lower than what was requested with nr_hugepages, then the system does either not have enough memory or there are not enough physically contiguous free pages. In the latter case the system needs to be rebooted which should give you a better chance of getting the memory.*
+
+
+##### To make the change permanent, add the following line to the file /etc/sysctl.conf. 
+```
+sudo cat /etc/sysctl.conf
+echo "vm.nr_hugepages=3072" >> /etc/sysctl.conf
+sudo cat /etc/sysctl.conf
+```
+* *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
 
 ##### Reboot
 ```
