@@ -123,18 +123,21 @@ Hugepagesize:     2048 kB
 ```
 sudo su
 echo 3072 > /proc/sys/vm/nr_hugepages 
+exit
 ```
 
 ##### To allocate 1536 Huge Pages
 ```
 sudo su
 echo 1536 > /proc/sys/vm/nr_hugepages 
+exit
 ```
 
 ##### To allocate 512 Huge Pages
 ```
 sudo su
 echo 512 > /proc/sys/vm/nr_hugepages
+exit
 ```
 
 ##### Alternatively, you can use sysctl(8) to change it:
@@ -153,9 +156,22 @@ echo "vm.nr_hugepages=512" >> /etc/sysctl.conf
 grep HugePages_Total /proc/meminfo
 ```
 ```
-HugePages_Total:   512
+HugePages_Total:  1137
 ```
 * *If HugePages_Total is lower than what was requested with nr_hugepages, then the system does either not have enough memory or there are not enough physically contiguous free pages. In the latter case the system needs to be rebooted which should give you a better chance of getting the memory.*
+
+##### Reboot
+```
+sudo reboot
+```
+
+##### Verify whether the kernel was able to allocate the requested number of Huge Pages
+```
+grep HugePages_Total /proc/meminfo
+```
+```
+HugePages_Total:  1137
+```
 
 ##### Get the number of free Huge Pages on the system
 ```
