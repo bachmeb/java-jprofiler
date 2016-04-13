@@ -302,3 +302,18 @@ echo 0 > /proc/sys/vm/nr_hugepages
 XX:+UseLargePages
 ```
 
+##### Get the number of free Huge Pages on the system
+```
+grep HugePages_Free /proc/meminfo
+```
+```
+
+```
+* *Free system memory will automatically be decreased by the size of the Huge Pages pool allocation regardless whether the pool is being used.*
+
+##### Check the free system memory
+```
+grep MemFree /proc/meminfo
+```
+```
+```
