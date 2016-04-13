@@ -297,3 +297,8 @@ less /etc/security/limits.conf
 echo 0 > /proc/sys/vm/nr_hugepages
 ```
 
+##### Run the Java application with XX:+UseLargePages
+```
+XX:+UseLargePages
+```
+
