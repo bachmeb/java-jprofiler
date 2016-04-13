@@ -96,7 +96,7 @@ Hugepagesize: 2048 kB
 * *If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 
 ##### Obtain the size of Huge Pages
-*To calculate the number of Huge Pages you first need to know the Huge Page size.*
+* *To calculate the number of Huge Pages you first need to know the Huge Page size.*
 ```
 grep Hugepagesize /proc/meminfo
 ```
@@ -107,7 +107,7 @@ Hugepagesize:     2048 kB
 ```
 * *The output shows that the size of a Huge Page on this system is 2MB. This means if a 1GB Huge Pages pool should be allocated, then 512 Huge Pages need to be allocated.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
 
-##### Calculate the number of large pages 
+##### Calculate the number of huge pages 
 * In the following example we want to reserve 3 GB of a 4 GB system for large pages 
   * Huge page size: 2048k
   * Space reserved in megabytes: 3g = 3 x 1024m = 3072m
@@ -199,7 +199,7 @@ kernel.shmall = 4294967296
 * 68,719,476,736 = 1024x1024x1024x64 = 64 gigabytes
 * 4,294,967,296 = 1024x1024x1024x4 = 4 billion pages
 
-##### To make the allocation of Huge Pages permanent, add the following line to the file /etc/sysctl.conf
+##### To make the allocation of Huge Pages permanent, add vm.nr_hugepages=3072 to the file /etc/sysctl.conf
 ```
 sudo su
 echo "vm.nr_hugepages=3072" >> /etc/sysctl.conf
