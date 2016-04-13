@@ -7,6 +7,15 @@
 
 ##### What is shared memory?
 * *Shared memory allows processes to access common structures and data by placing them in shared memory segments. It is the fastest form of inter-process communication available since no kernel involvement occurs when data is passed between the processes. In fact, data does not need to be copied between the processes.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
+* *The term shared memory is a term used to describe a type of memory management in the Unix kernel.  It is a memory region that can shared between different processes.*
+* *This is where semaphores come into play. Basically, flags that are either on or off.*
+* *If the memory is being used, the process turns on the flag and other processes have to wait until the semaphore is freed or the flag is turned off.*
+* *An application can access shared memory programatically through a set of POSIX C routines, common on most Unix like operating systems including Linux.*
+* *The IPC or shared memory API’s have common IPC calls like shmget() and shmat() which allow the programmer to get a shared memory segment, or attach to a segment.*
+* *The kernel paramaters SHMMAX and SHMALL need to be defined now.*
+* *SHMMAX is really just the maximum size of a single shared memory segment.  It’s size is represented in bytes.* 
+* *SHMALL is the sum of all shared memory segments on the whole system.  But it is measured in number of pages.* 
+* (http://seriousbirder.com/blogs/linux-understanding-shmmax-and-shmall-settings/)
 
 ##### See all shared memory settings
 ```
