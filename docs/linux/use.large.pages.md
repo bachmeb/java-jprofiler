@@ -43,8 +43,8 @@ max total shared memory (kbytes) = 17179869184    <-- SHMALL
 min seg size (bytes) = 1
 */
 ```
-* *67,108,864 = 64x1024x1024 = 64MB* 
-* *17,179,869,184 = 16x1024x1024x1024 = 16GB*
+* *SHMMAX = 67,108,864 = 64x1024x1024 = 64 million bytes = 64 megabytes* 
+* *SHMALL = 17,179,869,184 = 16x1024x1024x1024 = 16 billion kilobytes = 16 terabytes*
  
 ##### Setting SHMMAX
 * *Note if you set SHMMAX to 4294967296 bytes (4294967296=4x1024x1024x1024=4GB) on a 32 bit system, then SHMMAX will essentially bet set to 0 bytes since it wraps around the 4GB value.*
