@@ -20,6 +20,18 @@ Hugepagesize: 2048 kB
 ##### What is shared memory?
 * *Shared memory allows processes to access common structures and data by placing them in shared memory segments. It is the fastest form of inter-process communication available since no kernel involvement occurs when data is passed between the processes. In fact, data does not need to be copied between the processes.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
 
+##### See all shared memory settings
+```
+ipcs -lm
+```
+```c
+------ Shared Memory Limits --------
+max number of segments = 4096
+max seg size (kbytes) = 67108864
+max total shared memory (kbytes) = 17179869184
+min seg size (bytes) = 1
+```
+
 ##### Increase SHMMAX value
 *It must be larger than the Java heap size. On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable:*
 ```
