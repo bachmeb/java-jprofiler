@@ -5,6 +5,49 @@
 * http://jose-manuel.me/2012/11/how-to-enable-the-jvm-option-uselargepages-in-redhat/
 * https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html
 
+##### What is shared memory?
+* *Shared memory allows processes to access common structures and data by placing them in shared memory segments. It is the fastest form of inter-process communication available since no kernel involvement occurs when data is passed between the processes. In fact, data does not need to be copied between the processes.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
+
+##### See all shared memory settings
+```
+ipcs -lm
+```
+```c
+------ Shared Memory Limits --------
+max number of segments = 4096
+max seg size (kbytes) = 67108864
+max total shared memory (kbytes) = 17179869184
+min seg size (bytes) = 1
+```
+
+
+##### Setting SHMMAX
+* *Note if you set SHMMAX to 4294967296 bytes (4*1024*1024*1024=4GB) on a 32 bit system, then SHMMAX will essentially bet set to 0 bytes since it wraps around the 4GB value. 
+* *This means that SHMMAX should not exceed 4294967295 on a 32 bit system.*
+* *On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
+
+##### Determine the maximum size of a shared memory segment
+```
+cat /proc/sys/kernel/shmmax
+```
+```c
+/*
+68719476736
+*/
+```
+
+##### Increase SHMMAX value. It must be larger than the Java heap size. 
+*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable:*
+```
+sudo echo 4294967295 > /proc/sys/kernel/shmmax 
+```
+
+##### Reload the changes into the running kernel
+```
+sysctl -p
+```
+
+
 ##### Check if your system can support large page memory
 * *Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 ```
@@ -31,7 +74,19 @@ Hugepagesize:     2048 kB
 ```
 * *The output shows that the size of a Huge Page on this system is 2MB. This means if a 1GB Huge Pages pool should be allocated, then 512 Huge Pages need to be allocated.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
 
-##### To allocate 512 Huge Pages, execute
+##### Calculate the number of large pages 
+* In the following example 3 GB of a 4 GB system are reserved for large pages 
+* Assuming a large page size of 2048k
+* Then 3g = 3 x 1024m = 3072m
+* 3072m = 3072 * 1024k = 3145728k
+* 3145728k (space for large pages) / 2048k (huge page size) = 1536 (huge pages)
+
+##### To allocate 1536 Huge Pages
+```
+echo 1536 > /proc/sys/vm/nr_hugepages 
+```
+
+##### To allocate 512 Huge Pages
 ```
 echo 512 > /proc/sys/vm/nr_hugepages
 ```
@@ -125,56 +180,9 @@ less /etc/security/limits.conf
 ```
 * *The memlock setting is specified in KB and must match the memory size of the number of Huge Pages that Oracle should be able to allocate. So if the Oracle database should be able to use 512 Huge Pages, then memlock must be set to at least 512 * Hugepagesize, which on this system would be 1048576 KB (512*1024*2).* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
 
-##### Free the Huge Pages pool, you can execute:
+##### Free the Huge Pages pool
 ```
 echo 0 > /proc/sys/vm/nr_hugepages
-```
-
-##### What is shared memory?
-* *Shared memory allows processes to access common structures and data by placing them in shared memory segments. It is the fastest form of inter-process communication available since no kernel involvement occurs when data is passed between the processes. In fact, data does not need to be copied between the processes.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
-
-##### See all shared memory settings
-```
-ipcs -lm
-```
-```c
------- Shared Memory Limits --------
-max number of segments = 4096
-max seg size (kbytes) = 67108864
-max total shared memory (kbytes) = 17179869184
-min seg size (bytes) = 1
-```
-
-##### Setting SHMMAX
-* *Note if you set SHMMAX to 4294967296 bytes (4*1024*1024*1024=4GB) on a 32 bit system, then SHMMAX will essentially bet set to 0 bytes since it wraps around the 4GB value. 
-* *This means that SHMMAX should not exceed 4294967295 on a 32 bit system.*
-* *On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
-
-##### Determine the maximum size of a shared memory segment
-```
-cat /proc/sys/kernel/shmmax
-```
-```c
-/*
-68719476736
-*/
-```
-
-##### Increase SHMMAX value
-*It must be larger than the Java heap size. On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable:*
-```
-sudo echo 4294967295 > /proc/sys/kernel/shmmax 
-```
-
-##### Reload the changes into the running kernel
-```
-sysctl -p
-```
-
-##### Specify the number of large pages 
-*In the following example 3 GB of a 4 GB system are reserved for large pages (assuming a large page size of 2048k, then 3g = 3 x 1024m = 3072m = 3072 * 1024k = 3145728k, and 3145728k / 2048k = 1536):*
-```
-echo 1536 > /proc/sys/vm/nr_hugepages 
 ```
 
 ##### Reload the changes into the running kernel
