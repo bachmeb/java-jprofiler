@@ -34,7 +34,7 @@ min seg size (bytes) = 1
 ```
 
 ##### Setting SHMMAX
-* *note if you set SHMMAX to 4294967296 bytes (4*1024*1024*1024=4GB) on a 32 bit system, then SHMMAX will essentially bet set to 0 bytes since it wraps around the 4GB value. 
+* *Note if you set SHMMAX to 4294967296 bytes (4*1024*1024*1024=4GB) on a 32 bit system, then SHMMAX will essentially bet set to 0 bytes since it wraps around the 4GB value. 
 * *This means that SHMMAX should not exceed 4294967295 on a 32 bit system.*
 * *On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
 
