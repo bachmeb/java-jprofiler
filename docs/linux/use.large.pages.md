@@ -202,6 +202,7 @@ kernel.shmall = 4294967296
 ```
 sudo su
 echo "vm.nr_hugepages=3072" >> /etc/sysctl.conf
+exit
 sudo cat /etc/sysctl.conf
 ```
 * *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
