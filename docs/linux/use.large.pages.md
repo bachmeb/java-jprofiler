@@ -217,7 +217,7 @@ sudo reboot
 grep HugePages_Total /proc/meminfo
 ```
 ```
-HugePages_Total:  1137
+HugePages_Total:  3072
 ```
 
 ##### Get the number of free Huge Pages on the system
