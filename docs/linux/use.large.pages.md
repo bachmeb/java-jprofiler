@@ -155,6 +155,7 @@ HugePages_Total:  1137
 * *If HugePages_Total is lower than what was requested with nr_hugepages, then the system does either not have enough memory or there are not enough physically contiguous free pages. In the latter case the system needs to be rebooted which should give you a better chance of getting the memory.*
 
 ##### Read the Kernel sysctl configuration file for Red Hat Linux
+* *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
 ```
 sudo cat /etc/sysctl.conf
 ```
@@ -205,7 +206,6 @@ echo "vm.nr_hugepages=3072" >> /etc/sysctl.conf
 exit
 sudo cat /etc/sysctl.conf
 ```
-* *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
 
 ##### Reboot
 ```
