@@ -154,10 +154,53 @@ HugePages_Total:  1137
 ```
 * *If HugePages_Total is lower than what was requested with nr_hugepages, then the system does either not have enough memory or there are not enough physically contiguous free pages. In the latter case the system needs to be rebooted which should give you a better chance of getting the memory.*
 
-
-##### To make the change permanent, add the following line to the file /etc/sysctl.conf. 
+##### Read the Kernel sysctl configuration file for Red Hat Linux
 ```
 sudo cat /etc/sysctl.conf
+```
+```bash
+# Kernel sysctl configuration file for Red Hat Linux
+#
+# For binary values, 0 is disabled, 1 is enabled.  See sysctl(8) and
+# sysctl.conf(5) for more details.
+
+# Controls IP packet forwarding
+net.ipv4.ip_forward = 0
+
+# Controls source route verification
+net.ipv4.conf.default.rp_filter = 1
+
+# Do not accept source routing
+net.ipv4.conf.default.accept_source_route = 0
+
+# Controls the System Request debugging functionality of the kernel
+kernel.sysrq = 0
+
+# Controls whether core dumps will append the PID to the core filename
+# Useful for debugging multi-threaded applications
+kernel.core_uses_pid = 1
+
+# Controls the use of TCP syncookies
+net.ipv4.tcp_syncookies = 1
+
+# Controls the default maxmimum size of a mesage queue
+kernel.msgmnb = 65536
+
+# Controls the maximum size of a message, in bytes
+kernel.msgmax = 65536
+
+# Controls the maximum shared segment size, in bytes
+kernel.shmmax = 68719476736
+
+# Controls the maximum number of shared memory segments, in pages
+kernel.shmall = 4294967296
+```
+* 68,719,476,736 = 1024x1024x1024x64 = 64 gigabytes
+* 4,294,967,296 = 1024x1024x1024x4 = 4 billion pages
+
+##### To make the allocation of Huge Pages permanent, add the following line to the file /etc/sysctl.conf
+```
+sudo su
 echo "vm.nr_hugepages=3072" >> /etc/sysctl.conf
 sudo cat /etc/sysctl.conf
 ```
