@@ -47,6 +47,14 @@ echo "vm.nr_hugepages=512" >> /etc/sysctl.conf
 ```
 * *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
 
+##### Verify whether the kernel was able to allocate the requested number of Huge Pages
+```
+grep HugePages_Total /proc/meminfo
+```
+```
+HugePages_Total:   512
+```
+
 ##### What is shared memory?
 * *Shared memory allows processes to access common structures and data by placing them in shared memory segments. It is the fastest form of inter-process communication available since no kernel involvement occurs when data is passed between the processes. In fact, data does not need to be copied between the processes.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
 
