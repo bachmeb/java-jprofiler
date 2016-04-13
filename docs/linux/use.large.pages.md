@@ -110,14 +110,14 @@ Hugepagesize:     2048 kB
 ##### Calculate the number of huge pages 
 * In the following example we want to reserve 3 GB of a 4 GB system for large pages 
   * Huge page size: 2048k
-  * Space reserved in megabytes: 3g = 3 x 1024m = 3072m
-  * Space reserved in kilobytes: 3072m = 3072 * 1024k = 3145728k
-  * Huge pages: 3145728k (space for huge pages) / 2048k (huge page size) = 1536
+  * Space to be reserved in megabytes: 3g = 3 x 1024m = 3072m
+  * Space to be reserved in kilobytes: 3072m = 3072 * 1024k = 3145728k
+  * Huge pages required: 3145728k (space for huge pages) / 2048k (huge page size) = 1536
 * In the following example we want to reserve 6 GB of a 8 GB system for large pages 
   * Huge page size: 2048k
-  * Space reserved in megabytes: 6g = 6 x 1024m = 6144m
-  * Space reserved in kilobytes: 6144m = 6144 * 1024k = 6291456k
-  * Huge pages: 6291456k (space for huge pages) / 2048k (huge page size) = 3072
+  * Space to be reserved in megabytes: 6g = 6 x 1024m = 6144m
+  * Space to ber reserved in kilobytes: 6144m = 6144 * 1024k = 6291456k
+  * Huge pages required: 6291456k (space for huge pages) / 2048k (huge page size) = 3072
 
 ##### To allocate 3072 Huge Pages
 ```
@@ -199,7 +199,7 @@ kernel.shmall = 4294967296
 * 68,719,476,736 = 1024x1024x1024x64 = 64 gigabytes
 * 4,294,967,296 = 1024x1024x1024x4 = 4 billion pages
 
-##### To make the allocation of Huge Pages permanent, add vm.nr_hugepages=3072 to the file /etc/sysctl.conf
+##### To make the allocation of Huge Pages permanent, add vm.nr_hugepages=x to the file /etc/sysctl.conf
 ```
 sudo su
 echo "vm.nr_hugepages=3072" >> /etc/sysctl.conf
@@ -223,6 +223,9 @@ HugePages_Total:  3072
 ##### Get the number of free Huge Pages on the system
 ```
 grep HugePages_Free /proc/meminfo
+```
+```
+3072
 ```
 * *Free system memory will automatically be decreased by the size of the Huge Pages pool allocation regardless whether the pool is being used.*
 
@@ -287,15 +290,10 @@ less /etc/security/limits.conf
 
 # End of file
 ```
-* *The memlock setting is specified in KB and must match the memory size of the number of Huge Pages that Oracle should be able to allocate. So if the Oracle database should be able to use 512 Huge Pages, then memlock must be set to at least 512 * Hugepagesize, which on this system would be 1048576 KB (512*1024*2).* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
+* *The memlock setting is specified in kilobytes and must match the memory size of the number of Huge Pages that Java should be able to allocate. So if the Java application should be able to use 512 Huge Pages, then memlock must be set to at least 512 x Hugepagesize, which on this system would be 1048576 KB (512x1024x2).* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
 
 ##### Free the Huge Pages pool
 ```
 echo 0 > /proc/sys/vm/nr_hugepages
 ```
 
-##### Reload the changes into the running kernel
-```
-sysctl -p
-```
-*Note the /proc values will reset after reboot so you may want to set them in an init script (e.g. rc.local or sysctl.conf).*
