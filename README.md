@@ -1,5 +1,8 @@
 # java-performance-tuning
 
+## References
+* http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf
+
 ### OSX
 * [JProfiler](/docs/osx/jprofiler.md)
 
@@ -11,3 +14,4 @@
 
 ### Windows
 * [JProfiler](/docs/win/7/64/jprofiler.md)
+
