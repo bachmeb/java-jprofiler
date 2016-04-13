@@ -75,11 +75,11 @@ Hugepagesize:     2048 kB
 * *The output shows that the size of a Huge Page on this system is 2MB. This means if a 1GB Huge Pages pool should be allocated, then 512 Huge Pages need to be allocated.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
 
 ##### Calculate the number of large pages 
-* In the following example 3 GB of a 4 GB system are reserved for large pages 
-* Assuming a large page size of 2048k
-* Then 3g = 3 x 1024m = 3072m
-* 3072m = 3072 * 1024k = 3145728k
-* 3145728k (space for large pages) / 2048k (huge page size) = 1536 (huge pages)
+* In the following example we want to reserve 3 GB of a 4 GB system for large pages 
+* Huge page size: 2048k
+* Space reserved in megabytes: 3g = 3 x 1024m = 3072m
+* Space reserved in kilobytes: 3072m = 3072 * 1024k = 3145728k
+* Huge pages: 3145728k (space for large pages) / 2048k (huge page size) = 1536
 
 ##### To allocate 1536 Huge Pages
 ```
