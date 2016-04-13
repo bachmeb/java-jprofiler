@@ -61,9 +61,11 @@ cat /proc/sys/kernel/shmmax
 68719476736
 */
 ```
-* *68,719,476,736 = 1024x1024x1024x64*
+* The SHMMAX value must be larger than the Java heap size
+* 68,719,476,736 = 1024x1024x1024x64 = 64 gigabytes
+* In this case, the SHMMAX value does not need to be increased, because the system has less than 8GB RAM, and the heap size is less than 64GB
 
-##### Increase SHMMAX value. It must be larger than the Java heap size. 
+##### Increase SHMMAX value
 *On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
 ```
 sudo echo 4294967295 > /proc/sys/kernel/shmmax 
