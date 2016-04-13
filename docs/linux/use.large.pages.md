@@ -34,19 +34,22 @@ key        semid      owner      perms      nsems
 ipcs -lm
 ```
 ```c
+/*
 ------ Shared Memory Limits --------
 max number of segments = 4096                     <-- SHMMNI
 max seg size (kbytes) = 67108864                  <-- SHMMAX
 max total shared memory (kbytes) = 17179869184    <-- SHMALL
 min seg size (bytes) = 1
+*/
 ```
 
 ##### Setting SHMMAX
 * *Note if you set SHMMAX to 4294967296 bytes (4294967296=4x1024x1024x1024=4GB) on a 32 bit system, then SHMMAX will essentially bet set to 0 bytes since it wraps around the 4GB value.*
 * *This means that SHMMAX should not exceed 4294967295 on a 32 bit system.*
 * *On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
+* *If the current SHMMAX setting is greater than the amount of physical memory, the SHMMAX setting does not need to be increased.*
 
-##### Read the SHMMAX setting (the maximum size of a shared memory segment)
+##### Read the current SHMMAX setting (the maximum size of a shared memory segment)
 ```
 cat /proc/sys/kernel/shmmax
 ```
@@ -55,13 +58,14 @@ cat /proc/sys/kernel/shmmax
 68719476736
 */
 ```
+* *68,719,476,736 = 1024x1024x1024x64*
 
 ##### Increase SHMMAX value. It must be larger than the Java heap size. 
-*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4294967295 = (4x1024x1024x1024)-1))*
+*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
 ```
 sudo echo 4294967295 > /proc/sys/kernel/shmmax 
 ```
-*On a system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8589934591 = (8x1024x1024x1024)-1))*
+*On a system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8,589,934,591 = (8x1024x1024x1024)-1))*
 ```
 sudo echo 8589934591 > /proc/sys/kernel/shmmax 
 ```
