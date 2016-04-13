@@ -109,18 +109,31 @@ Hugepagesize:     2048 kB
 
 ##### Calculate the number of large pages 
 * In the following example we want to reserve 3 GB of a 4 GB system for large pages 
-* Huge page size: 2048k
-* Space reserved in megabytes: 3g = 3 x 1024m = 3072m
-* Space reserved in kilobytes: 3072m = 3072 * 1024k = 3145728k
-* Huge pages: 3145728k (space for large pages) / 2048k (huge page size) = 1536
+  * Huge page size: 2048k
+  * Space reserved in megabytes: 3g = 3 x 1024m = 3072m
+  * Space reserved in kilobytes: 3072m = 3072 * 1024k = 3145728k
+  * Huge pages: 3145728k (space for huge pages) / 2048k (huge page size) = 1536
+* In the following example we want to reserve 6 GB of a 8 GB system for large pages 
+  * Huge page size: 2048k
+  * Space reserved in megabytes: 6g = 6 x 1024m = 6144m
+  * Space reserved in kilobytes: 6144m = 6144 * 1024k = 6291456k
+  * Huge pages: 6291456k (space for huge pages) / 2048k (huge page size) = 3072
+
+##### To allocate 3072 Huge Pages
+```
+sudo su
+echo 3072 > /proc/sys/vm/nr_hugepages 
+```
 
 ##### To allocate 1536 Huge Pages
 ```
+sudo su
 echo 1536 > /proc/sys/vm/nr_hugepages 
 ```
 
 ##### To allocate 512 Huge Pages
 ```
+sudo su
 echo 512 > /proc/sys/vm/nr_hugepages
 ```
 
