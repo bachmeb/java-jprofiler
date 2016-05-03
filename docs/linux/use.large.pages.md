@@ -65,6 +65,12 @@ cat /proc/sys/kernel/shmmax
 * 68,719,476,736 = 1024x1024x1024x64 = 64 gigabytes
 * In the case of a machine with 8GB RAM, the SHMMAX value does not need to be increased, because 64GB is greater than 8GB, and the heap size will be no greater than 8GB
 
+##### Read the Kernel sysctl configuration file for Red Hat Linux
+* *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
+```
+sudo cat /etc/sysctl.conf | grep shmmax
+```
+
 ##### Increase SHMMAX value
 *On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
 ```
@@ -80,6 +86,21 @@ sudo echo 8589934591 > /proc/sys/kernel/shmmax
 sysctl -p
 ```
 
+##### Alternatively, you can use sysctl to set the shmmax value:
+```
+sudo /sbin/sysctl -w kernel.shmmax=8589934591
+```
+
+##### To make the shmmax setting permanent, edit sysctl.conf
+```
+sudo nano /etc/sysctl.conf
+```
+```c
+/*
+# Controls the maximum shared segment size, in bytes
+kernel.shmmax = 8589934591
+*/
+```
 
 ##### Check if your system can support large page memory
 * *Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
