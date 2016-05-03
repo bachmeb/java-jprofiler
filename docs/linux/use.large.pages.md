@@ -75,21 +75,15 @@ sudo cat /etc/sysctl.conf | grep shmmax
 ##### Increase SHMMAX value
 *On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
 ```
-sudo echo 4294967295 > /proc/sys/kernel/shmmax 
+sudo /sbin/sysctl -w kernel.shmmax=4294967295
 ```
 *On a system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8,589,934,591 = (8x1024x1024x1024)-1))*
 ```
-sudo echo 8589934591 > /proc/sys/kernel/shmmax 
-```
-
-##### Reload the changes into the running kernel
-```
-sysctl -p
-```
-
-##### Alternatively, you can use sysctl to set the shmmax value:
-```
 sudo /sbin/sysctl -w kernel.shmmax=8589934591
+```
+* 64 GB
+```
+sudo /sbin/sysctl -w kernel.shmmax=68719476736
 ```
 
 ##### To make the shmmax setting permanent, edit sysctl.conf
