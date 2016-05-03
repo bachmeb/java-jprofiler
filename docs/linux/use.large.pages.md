@@ -88,16 +88,16 @@ cat /proc/sys/kernel/shmmax
 sudo cat /etc/sysctl.conf | grep shmmax
 ```
 
-##### Increase SHMMAX value
-*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
+##### Set the SHMMAX value
+*On a system 32-bit with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
 ```
 sudo /sbin/sysctl -w kernel.shmmax=4294967295
 ```
-*On a system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8,589,934,591 = (8x1024x1024x1024)-1))*
+*On a 32-bit system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8,589,934,591 = (8x1024x1024x1024)-1))*
 ```
 sudo /sbin/sysctl -w kernel.shmmax=8589934591
 ```
-* 64 GB
+* 64 GB on a 64-bit system
 ```
 sudo /sbin/sysctl -w kernel.shmmax=68719476736
 ```
@@ -181,6 +181,15 @@ bc
 1572864
 ```
 
+##### Calculate a SHMALL value for 7 GB of memory with a 4096 page size
+```
+bc
+7*1024*1024*1024
+7516192768
+7*1024*1024*1024/4096
+1835008
+```
+
 ##### Set the SHMALL value
 *To set the SHMALL value to 6 GB where the page is is 4k*
 ```
@@ -221,6 +230,15 @@ Hugepagesize:     2048 kB
   * Space to be reserved in megabytes: 6g = 6 x 1024m = 6144m
   * Space to ber reserved in kilobytes: 6144m = 6144 * 1024k = 6291456k
   * Huge pages required: 6291456k (space for huge pages) / 2048k (huge page size) = 3072
+* In the following example we want to reserve 7 GB of a 8 GB system for large pages 
+```
+7*1024
+7168
+7*1024*1024
+7340032
+7*1024*1024/2048
+3584
+```
 
 ##### To allocate 3072 Huge Pages
 ```
