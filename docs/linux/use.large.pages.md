@@ -47,18 +47,6 @@ Hugepagesize: 2048 kB
 ```
 * *If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
 
-##### Obtain the size of Huge Pages
-* *To calculate the number of Huge Pages you first need to know the Huge Page size.*
-```
-grep Hugepagesize /proc/meminfo
-```
-```c
-/*
-Hugepagesize:     2048 kB
-*/
-```
-* *The output shows that the size of a Huge Page on this system is 2MB. This means if a 1GB Huge Pages pool should be allocated, then 512 Huge Pages need to be allocated.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
-
 ##### See all shared memory settings
 ```
 ipcs -lm
@@ -178,22 +166,14 @@ bc
 bc
 6*1024*1024*1024
 6442450944
-6442450944/4096
+6*1024*1024*1024/4096
 1572864
 ```
 
 ##### Set the SHMALL value
-*To set the SHMALL value to 6 GB*
+*To set the SHMALL value to 6 GB where the page is is 4k*
 ```
 sudo /sbin/sysctl -w kernel.shmall=1572864
-```
-*On a system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8,589,934,591 = (8x1024x1024x1024)-1))*
-```
-sudo /sbin/sysctl -w kernel.shmall=asdf
-```
-* 64 GB
-```
-sudo /sbin/sysctl -w kernel.shmall=asdf
 ```
 
 ##### To make the SHMALL setting permanent, edit sysctl.conf
@@ -203,11 +183,23 @@ sudo nano /etc/sysctl.conf
 ```c
 /*
 # Controls the maximum number of shared memory segments, in pages
-kernel.shmall = asdf
+kernel.shmall = 1572864
 */
 ```
 
-##### Calculate the number of huge pages 
+##### Obtain the size of Huge Pages
+* *To calculate the number of Huge Pages you first need to know the Huge Page size.*
+```
+grep Hugepagesize /proc/meminfo
+```
+```c
+/*
+Hugepagesize:     2048 kB
+*/
+```
+* *The output shows that the size of a Huge Page on this system is 2MB. This means if a 1GB Huge Pages pool should be allocated, then 512 Huge Pages need to be allocated.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
+
+##### Calculate the number of huge pages to allocate
 * In the following example we want to reserve 3 GB of a 4 GB system for large pages 
   * Huge page size: 2048k
   * Space to be reserved in megabytes: 3g = 3 x 1024m = 3072m
