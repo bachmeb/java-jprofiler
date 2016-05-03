@@ -161,6 +161,17 @@ bc
 ```
 * The memory value of 4294967296 shmall is 16 terabytes
 
+##### Why are the shmmax and shmall defaults very high in Red Hat Enterprise Linux 5 and 6?
+* The defaults in RHEL5 are set to the theoretical limit of these values. 
+* The values you see are the defaults for x86_64 architecture. 
+* There should be no bad implications on the high shmmax/shmall default value. 
+* These are to better suit the most common default configurations and usage. 
+* Obviously it's impossible to have defaults that are perfect for every use, and you are expected to change the values as per your application requirements.
+* Before RHEL5, these values were not set in '/etc/sysctl.conf', and so the kernel would default to using a much smaller value, Which you would frequently require the administrator to increase when installing an application. 
+* If these values were not changed, there was a high chance some applications would fail to start. 
+* The current values provide much better defaults and ease DB administration.
+* (https://access.redhat.com/solutions/43525)
+
 ##### Calculate a SHMALL value for 6 GB of memory with a 4096 page size
 ```
 bc
