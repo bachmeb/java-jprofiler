@@ -96,6 +96,48 @@ sudo nano /etc/sysctl.conf
 kernel.shmmax = 8589934591
 */
 ```
+##### Setting SHMALL
+* *Since SHMALL is the sum of all the shared memory segments on your system, you had better make it smaller than your total system memory.* (http://seriousbirder.com/blogs/linux-understanding-shmmax-and-shmall-settings/)
+##### Read the current SHMALL setting (the sum of all the shared memory segments)
+```
+cat /proc/sys/kernel/shmall
+```
+```c
+/*
+
+*/
+```
+* The SHMALL value must be less than than your total system memory
+
+##### Read the SHMALL setting in the kernel sysctl configuration file
+```
+sudo cat /etc/sysctl.conf | grep shmall
+```
+
+##### Set the SHMALL value
+*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
+```
+sudo /sbin/sysctl -w kernel.shmall=asdf
+```
+*On a system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8,589,934,591 = (8x1024x1024x1024)-1))*
+```
+sudo /sbin/sysctl -w kernel.shmall=asdf
+```
+* 64 GB
+```
+sudo /sbin/sysctl -w kernel.shmall=asdf
+```
+
+##### To make the SHMALL setting permanent, edit sysctl.conf
+```
+sudo nano /etc/sysctl.conf
+```
+```c
+/*
+# Controls the maximum number of shared memory segments, in pages
+kernel.shmall = asdf
+*/
+```
 
 ##### Check if your system can support large page memory
 * *Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
