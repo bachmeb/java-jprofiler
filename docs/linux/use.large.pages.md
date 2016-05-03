@@ -125,6 +125,7 @@ kernel.shmmax = 8589934591
 ```
 ##### Setting SHMALL
 * *Since SHMALL is the sum of all the shared memory segments on your system, you had better make it smaller than your total system memory.* (http://seriousbirder.com/blogs/linux-understanding-shmmax-and-shmall-settings/)
+
 ##### Read the current SHMALL setting (the sum of all the shared memory segments)
 ```
 cat /proc/sys/kernel/shmall
