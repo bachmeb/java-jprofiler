@@ -245,7 +245,7 @@ exit
 
 ##### Alternatively, you can use sysctl(8) to change it:
 ```
-sysctl -w vm.nr_hugepages=512
+sudo /sbin/sysctl -w vm.nr_hugepages=512
 ```
 
 ##### Verify whether the kernel was able to allocate the requested number of Huge Pages
@@ -260,54 +260,19 @@ HugePages_Total:  1137
 ##### Read the Kernel sysctl configuration file for Red Hat Linux
 * *This file is used during the boot process. The Huge Pages pool is usually guaranteed if requested at boot time*
 ```
-sudo cat /etc/sysctl.conf
+sudo cat /etc/sysctl.conf | grep nr_hugepages
 ```
 ```bash
-# Kernel sysctl configuration file for Red Hat Linux
-#
-# For binary values, 0 is disabled, 1 is enabled.  See sysctl(8) and
-# sysctl.conf(5) for more details.
-
-# Controls IP packet forwarding
-net.ipv4.ip_forward = 0
-
-# Controls source route verification
-net.ipv4.conf.default.rp_filter = 1
-
-# Do not accept source routing
-net.ipv4.conf.default.accept_source_route = 0
-
-# Controls the System Request debugging functionality of the kernel
-kernel.sysrq = 0
-
-# Controls whether core dumps will append the PID to the core filename
-# Useful for debugging multi-threaded applications
-kernel.core_uses_pid = 1
-
-# Controls the use of TCP syncookies
-net.ipv4.tcp_syncookies = 1
-
-# Controls the default maxmimum size of a mesage queue
-kernel.msgmnb = 65536
-
-# Controls the maximum size of a message, in bytes
-kernel.msgmax = 65536
-
-# Controls the maximum shared segment size, in bytes
-kernel.shmmax = 68719476736
-
-# Controls the maximum number of shared memory segments, in pages
-kernel.shmall = 4294967296
+vm.nr_hugepages=3072
 ```
-* 68,719,476,736 = 1024x1024x1024x64 = 64 gigabytes
-* 4,294,967,296 = 1024x1024x1024x4 = 4 billion pages
 
 ##### To make the allocation of Huge Pages permanent, add vm.nr_hugepages=x to the file /etc/sysctl.conf
 ```
-sudo su
-echo "vm.nr_hugepages=3072" >> /etc/sysctl.conf
-exit
-sudo cat /etc/sysctl.conf
+sudo nano /etc/sysctl.conf
+```
+```bash
+# Allocates the number of huge pages
+vm.nr_hugepages=3072
 ```
 
 ##### Reboot
