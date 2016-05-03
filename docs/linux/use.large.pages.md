@@ -6,6 +6,7 @@
 * https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html
 * http://aixnote.tistory.com/215
 * https://bugs.openjdk.java.net/browse/JDK-8048224
+* https://access.redhat.com/solutions/43525
 
 ##### What is shared memory?
 * *Shared memory allows processes to access common structures and data by placing them in shared memory segments. It is the fastest form of inter-process communication available since no kernel involvement occurs when data is passed between the processes. In fact, data does not need to be copied between the processes.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shared_Memory.html)
@@ -126,26 +127,65 @@ kernel.shmmax = 8589934591
 ##### Setting SHMALL
 * *Since SHMALL is the sum of all the shared memory segments on your system, you had better make it smaller than your total system memory.* (http://seriousbirder.com/blogs/linux-understanding-shmmax-and-shmall-settings/)
 
+##### Get the current page size
+```
+getconf PAGE_SIZE
+```
+```c
+// 4096
+```
 ##### Read the current SHMALL setting (the sum of all the shared memory segments)
+* SHMALL is measured in memory pages not bytes. (http://seriousbirder.com/blogs/linux-understanding-shmmax-and-shmall-settings/)
 ```
 cat /proc/sys/kernel/shmall
 ```
 ```c
 /*
-
+2097152
 */
 ```
+* 2097152 * 4096 = 8589934592 = 8x1024x1024x1024 = 8 GB
 * The SHMALL value must be less than than your total system memory
 
 ##### Read the SHMALL setting in the kernel sysctl configuration file
 ```
 sudo cat /etc/sysctl.conf | grep shmall
 ```
+```c
+/*
+kernel.shmall = 4294967296
+*/
+```
+
+##### Convert the SHMALL value to a memory value in bytes
+```
+bc
+4294967296*4096
+17592186044416
+4294967296*4096/1024
+17179869184
+4294967296*4096/1024/1024
+16777216
+4294967296*4096/1024/1024/1024
+16384
+4294967296*4096/1024/1024/1024/1024
+16
+```
+* The memory value of 4294967296 shmall is 16 terabytes
+
+##### Calculate a SHMALL value for 6 GB of memory with a 4096 page size
+```
+bc
+6*1024*1024*1024
+6442450944
+6442450944/4096
+1572864
+```
 
 ##### Set the SHMALL value
-*On a system with 4 GB of physical RAM (or less) the following will make all the memory sharable. (4,294,967,295 = (4x1024x1024x1024)-1))*
+*To set the SHMALL value to 6 GB*
 ```
-sudo /sbin/sysctl -w kernel.shmall=asdf
+sudo /sbin/sysctl -w kernel.shmall=1572864
 ```
 *On a system with 8 GB of physical RAM (or less) the following will make all the memory sharable. (8,589,934,591 = (8x1024x1024x1024)-1))*
 ```
