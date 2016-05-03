@@ -31,6 +31,33 @@ key        semid      owner      perms      nsems
 */
 ```
 
+
+##### Check if your system can support large page memory
+* *Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
+```
+cat /proc/meminfo | grep Huge 
+```
+```c
+/*
+HugePages_Total: 0 
+HugePages_Free: 0 
+Hugepagesize: 2048 kB 
+*/
+```
+* *If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
+
+##### Obtain the size of Huge Pages
+* *To calculate the number of Huge Pages you first need to know the Huge Page size.*
+```
+grep Hugepagesize /proc/meminfo
+```
+```c
+/*
+Hugepagesize:     2048 kB
+*/
+```
+* *The output shows that the size of a Huge Page on this system is 2MB. This means if a 1GB Huge Pages pool should be allocated, then 512 Huge Pages need to be allocated.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
+
 ##### See all shared memory settings
 ```
 ipcs -lm
@@ -138,32 +165,6 @@ sudo nano /etc/sysctl.conf
 kernel.shmall = asdf
 */
 ```
-
-##### Check if your system can support large page memory
-* *Large page support is included in 2.6 kernel. Some vendors have backported the code to their 2.4 based releases.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
-```
-cat /proc/meminfo | grep Huge 
-```
-```c
-/*
-HugePages_Total: 0 
-HugePages_Free: 0 
-Hugepagesize: 2048 kB 
-*/
-```
-* *If the output shows the three "Huge" variables then your system can support large page memory, but it needs to be configured. If the command doesn't print out anything, then large page support is not available.* (http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html)
-
-##### Obtain the size of Huge Pages
-* *To calculate the number of Huge Pages you first need to know the Huge Page size.*
-```
-grep Hugepagesize /proc/meminfo
-```
-```c
-/*
-Hugepagesize:     2048 kB
-*/
-```
-* *The output shows that the size of a Huge Page on this system is 2MB. This means if a 1GB Huge Pages pool should be allocated, then 512 Huge Pages need to be allocated.* (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/sect-Oracle_9i_and_10g_Tuning_Guide-Large_Memory_Optimization_Big_Pages_and_Huge_Pages-Configuring_Huge_Pages_in_Red_Hat_Enterprise_Linux_4_or_5.html)
 
 ##### Calculate the number of huge pages 
 * In the following example we want to reserve 3 GB of a 4 GB system for large pages 
