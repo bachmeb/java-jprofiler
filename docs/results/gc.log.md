@@ -1,5 +1,8 @@
 # gc.log
 
+## References
+* http://stackoverflow.com/questions/19274153/gc-log-rotation-data-lose-on-application-restart
+
 ##### run.conf
 ```bash
 ### Custom settings
