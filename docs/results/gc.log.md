@@ -2,50 +2,10 @@
 
 ## References
 * http://stackoverflow.com/questions/19274153/gc-log-rotation-data-lose-on-application-restart
+* https://blogs.oracle.com/poonam/entry/understanding_cms_gc_logs
 
-##### run.conf
+### run.conf
 ```bash
-### Custom settings
-# Initial Java heap size
-JAVA_OPTS="$JAVA_OPTS -Xms5000m"
-
-# Maximum Java heap size
-JAVA_OPTS="$JAVA_OPTS -Xmx5000m"
-
-# Maximum Java permanent space size
-JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=512m"
-
-# Thread-local allocation buffer
-JAVA_OPTS="$JAVA_OPTS -XX:+UseTLAB"
-
-# Use Parallel New Garbage Collection (New generation)
-JAVA_OPTS="$JAVA_OPTS -XX:+UseParNewGC"
-
-# Use Concurrent Mark Sweep Garbage Collector (Old generation)
-JAVA_OPTS="$JAVA_OPTS -XX:+UseConcMarkSweepGC"
-
-# Disable garbage collection of classes
-JAVA_OPTS="$JAVA_OPTS -Xnoclassgc"
-
-# Ratio between the two survivor spaces and eden
-JAVA_OPTS="$JAVA_OPTS -XX:SurvivorRatio=8"
-
-# Default size of new generation (in bytes)
-JAVA_OPTS="$JAVA_OPTS -XX:NewSize=2048m"
-
-# Maximum size of new generation (in bytes)
-JAVA_OPTS="$JAVA_OPTS -XX:MaxNewSize=2048m"
-
-# JBoss Resolver Warning
-JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
-
-# Periodic full collection frequency required by RMI
-JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
-JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.server.gcInterval=3600000"
-
-# Workaround to allow Array Syntax
-JAVA_OPTS="$JAVA_OPTS -Dsun.lang.ClassLoader.allowArraySyntax=true"
-
 # Verbose Garbage Collection
 JAVA_OPTS="$JAVA_OPTS -verbose:gc"
 
@@ -57,17 +17,27 @@ JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCDetails"
 
 # Print Garbage Collection Time Stamps
 JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCTimeStamps"
+
+# Tell the JVM to append a date to the gc.log filename
+DATE=`date +%Y-%m-%d-%H-%M`
+JAVA_OPTS="$JAVA_OPTS -Xloggc:/var/log/jboss/gc-$DATE.log ..."
 ```
-##### Friday to Monday
+
+##### Find the log file
+```
+sudo find / -name gc.log
+```
+
+##### Example
 ```
 9.699: [Full GC (System) 9.699: [CMS: 0K->45093K(3022848K), 0.5122730 secs] 604048K->45093K(4910336K), [CMS Perm : 25035K->25020K(25088K)], 0.5124600 secs] [Times: user=0.43 sys=0.06, real=0.52 secs]
 399.611: [GC 399.611: [ParNew: 1677824K->142198K(1887488K), 0.4720480 secs] 1722917K->187292K(4910336K), 0.4721650 secs] [Times: user=0.70 sys=0.09, real=0.47 secs]
-418.734: [GC 418.734: [ParNew: 1820022K->176414K(1887488K), 1.4365710 secs] 1865116K->344190K(4910336K), 1.4366900 secs][bachmeb@99700hlzx6g1 ~]$ cat /opt/jboss/gc.log
+418.734: [GC 418.734: [ParNew: 1820022K->176414K(1887488K), 1.4365710 secs] 1865116K->344190K(4910336K), 1.4366900 secs][bachmeb@HOSTNAME ~]$ cat /opt/jboss/gc.log
 9.699: [Full GC (System) 9.699: [CMS: 0K->45093K(3022848K), 0.5122730 secs] 604048K->45093K(4910336K), [CMS Perm : 25035K->25020K(25088K)], 0.5124600 secs] [Times: user=0.43 sys=0.06, real=0.52 secs]
 399.611: [GC 399.611: [ParNew: 1677824K->142198K(1887488K), 0.4720480 secs] 1722917K->187292K(4910336K), 0.4721650 secs] [Times: user=0.70 sys=0.09, real=0.47 secs]
 418.734: [GC 418.734: [ParNew: 1820022K->176414K(1887488K), 1.4365710 secs] 1865116K->344190K(4910336K), 1.at /opt/jboss/gc.log                                 9.699: [Full GC (System) 9.699: [CMS: 0K->45093K(3022848K), 0.5122730 secs] 604048K->45093K(4910336K), [CMS Perm : 25035K->25020K(25088K)], 0.5124600 secs] [Times: user=0.43 sys=0.06, real=0.52 secs]
 399.611: [GC 399.611: [ParNew: 1677824K->142198K(1887488K), 0.4720480 secs] 1722917K->187292K(4910336K), 0.4721650 secs] [Times: user=0.70 sys=0.09, real=0.47 secs]
-418.734: [GC 418.734: [ParNew: 1820022K->176414K(1887488K), 1.4365710 secs] 1865116K->344190K(4910336K), 1.4366900 secs][bachmeb@99700hlzx6g1 ~]$ cat /opt/jboss/gc.log
+418.734: [GC 418.734: [ParNew: 1820022K->176414K(1887488K), 1.4365710 secs] 1865116K->344190K(4910336K), 1.4366900 secs][bachmeb@HOSTNAME ~]$ cat /opt/jboss/gc.log
 9.699: [Full GC (System) 9.699: [CMS: 0K->45093K(3022848K), 0.5122730 secs] 604048K->45093K(4910336K), [CMS Perm : 25035K->25020K(25088K)], 0.5124600 secs] [Times: user=0.43 sys=0.06, real=0.52 secs]
 399.611: [GC 399.611: [ParNew: 1677824K->142198K(1887488K), 0.4720480 secs] 1722917K->187292K(4910336K), 0.4721650 secs] [Times: user=0.70 sys=0.09, real=0.47 secs]
 418.734: [GC 418.734: [ParNew: 1820022K->176414K(1887488K), 1.4365710 secs] 1865116K->344190K(4910336K), 1.4366900 secs] [Times: user=2.19 sys=0.18, real=1.43 secs]
@@ -145,5 +115,4 @@ Heap
   to   space 209664K,   0% used [0x000000070de80000, 0x000000070de80000, 0x000000071ab40000)
  concurrent mark-sweep generation total 3022848K, used 150597K [0x0000000727800000, 0x00000007e0000000, 0x00000007e0000000)
  concurrent-mark-sweep perm gen total 127628K, used 76793K [0x00000007e0000000, 0x00000007e7ca3000, 0x0000000800000000)
-
 ```
