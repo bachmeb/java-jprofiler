@@ -20,7 +20,7 @@ JAVA_OPTS="$JAVA_OPTS -XX:+PrintGCTimeStamps"
 
 # Tell the JVM to append a date to the gc.log filename
 DATE=`date +%Y-%m-%d-%H-%M`
-JAVA_OPTS="$JAVA_OPTS -Xloggc:/var/log/jboss/gc-$DATE.log ..."
+JAVA_OPTS="$JAVA_OPTS -Xloggc:/var/log/jboss/gc-$DATE.log"
 ```
 
 ##### Find the log file
