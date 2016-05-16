@@ -199,6 +199,9 @@ JAVA_OPTS="$JAVA_OPTS -Dorg.jboss.resolver.warning=true"
 * *Apparently when your application either exposes its services via RMI or consumes any services over RMI, you are bound to have an additional garbage collection cycle. As the RMI documentation says: "When it is necessary to ensure that unreachable remote objects are unexported and garbage collected in a timely fashion, the value of this property represents the maximum interval (in milliseconds) that the Java RMI runtime will allow between garbage collections of the local heap. The default value is 3600000 milliseconds (one hour)."* (https://plumbr.eu/blog/garbage-collection/rmi-enforcing-full-gc-to-run-hourly)
 
 * *Java Remote Method Invocation (Java RMI) enables the programmer to create distributed Java technology-based to Java technology-based applications, in which the methods of remote Java objects can be invoked from other Java virtual machines*, possibly on different hosts. RMI uses object serialization to marshal and unmarshal parameters and does not truncate types, supporting true object-oriented polymorphism.* (http://www.oracle.com/technetwork/articles/javaee/index-jsp-136424.html)
+
+* *When it is necessary to ensure that unreachable remote objects are unexported and garbage collected in a timely fashion, the value of this property represents the maximum interval (in milliseconds) that the Java RMI runtime will allow between garbage collections of the local heap. The default value is 3600000 milliseconds (one hour).* (https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/sunrmiproperties.html) 
+
 ```
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000"
 JAVA_OPTS="$JAVA_OPTS -Dsun.rmi.dgc.server.gcInterval=3600000"
