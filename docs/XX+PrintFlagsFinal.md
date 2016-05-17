@@ -3,6 +3,7 @@
 ## References
 * https://www.jclarity.com/2013/12/11/poorly-chosen-java-hotspot-garbage-collection-flags-and-how-to-fix-them/?ref=dzone
 * http://www.javaworld.com/article/2073676/hotspot-jvm-options-displayed---xx--printflagsinitial-and--xx--printflagsfinal.html
+* http://q-redux.blogspot.com/2011/01/inspecting-hotspot-jvm-options.html
 
 ##### Show the default Java options
 ```
