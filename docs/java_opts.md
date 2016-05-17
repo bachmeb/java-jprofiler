@@ -19,6 +19,7 @@
 * https://engineering.linkedin.com/garbage-collection/garbage-collection-optimization-high-throughput-and-low-latency-java-applications
 * http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.63.6386&rep=rep1&type=pdf
 
+
 ### Settings
 
 ##### Initial Java heap size  
