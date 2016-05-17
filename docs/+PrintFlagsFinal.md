@@ -9,6 +9,15 @@
 ```
 java -XX:+PrintFlagsFinal
 ```
+
+* *Datatype. bool for booleans, uintx for unsigned integers etc*
+* *Name*
+* *Assignment. = means this is the default. := means this option was modified from the default value by command line or ergonomics.*
+* *Value*
+* *Category. There are two large categories diagnostic or product. (I find this a better grouping than Behavioural, Performance and Debugging.) and also manageable if this option can be set via JMX. C1 relates to the JIT compiler used in the Client JVM. C2 means the same but for the Server JVM and I suspect pd means Platform Dependent as most pd options are Solaris only.*
+* (http://q-redux.blogspot.com/2011/01/inspecting-hotspot-jvm-options.html) 
+
+
 ```c
 /*
 [Global flags]
