@@ -2,6 +2,7 @@
 
 ## References
 * http://stackoverflow.com/questions/2959878/what-flags-are-enabled-by-xxaggressiveopts-on-sun-jre-1-6u20
+* http://q-redux.blogspot.com/2011/01/inspecting-hotspot-jvm-options.html
 
 ##### Check the difference between setting AggressiveOpts on and off
 ```
